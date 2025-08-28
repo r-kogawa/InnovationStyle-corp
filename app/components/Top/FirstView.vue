@@ -107,15 +107,16 @@
           <div class="inline-block mb-4 md:mb-6">
             <span
               class="inline-block px-3 md:px-4 py-1 md:py-2 text-xs font-semibold tracking-widest uppercase bg-white border border-gray-200 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
-              >Innovation & Technology</span
             >
+              Innovation & Technology
+            </span>
           </div>
           <h1
             class="text-4xl md:text-7xl font-extrabold leading-tight mb-4 md:mb-6 text-gray-900 tracking-tight"
           >
             Innovation
             <span
-              class="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
+              class="bg-gradient-to-r from-slate-600 to-slate-400 bg-clip-text text-transparent"
             >
               Style
             </span>
