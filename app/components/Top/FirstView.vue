@@ -152,9 +152,9 @@ const thoughts = [
 ];
 
 // 色設定の状態管理
-const showControls = ref(false);
-const customTextColor = ref("#6b7280");
-const customBubbleColor = ref("#ffffff");
+const showControls = ref<boolean>(false);
+const customTextColor = ref<string>("#6b7280");
+const customBubbleColor = ref<string>("#ffffff");
 
 // コントロールパネルの表示切り替え
 const toggleControls = () => {

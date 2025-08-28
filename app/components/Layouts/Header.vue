@@ -18,7 +18,7 @@
         <div class="flex gap-10 items-center text-xl text-slate-700">
           <NuxtLink to="/">経営理念</NuxtLink>
           <NuxtLink to="/about">事業内容</NuxtLink>
-          <NuxtLink to="/contact">会社概要</NuxtLink>
+          <NuxtLink to="/company">会社概要</NuxtLink>
         </div>
       </div>
     </div>
