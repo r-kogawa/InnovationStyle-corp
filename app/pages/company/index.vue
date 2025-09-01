@@ -1,6 +1,14 @@
 <template>
   <section>
-    <div class="w-full h-40 md:h-60 bg-gray-100">
+    <div
+      class="w-full h-40 md:h-60 bg-white"
+      :style="{
+        backgroundImage: `url(${earthBg})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'left',
+        backgroundRepeat: 'no-repeat',
+      }"
+    >
       <div class="h-full">
         <div class="flex flex-col gap-2 items-center justify-center h-full">
           <h1 class="text-3xl font-orbitron">Company</h1>
@@ -30,13 +38,7 @@
         </iframe>
       </div>
     </div>
-    <div class="w-full h-32 md:h-48 bg-gray-100 grid grid-cols-2 mt-4 md:mt-20">
-      <NuxtLink
-        to="/about"
-        class="bg-slate-400 flex items-center justify-center text-white"
-      >
-        <span class="text-xl md:text-2xl"> 会社概要 </span>
-      </NuxtLink>
+    <div class="w-full h-32 md:h-48 bg-gray-100 grid grid-cols-1 mt-4 md:mt-20">
       <NuxtLink
         to="/contact"
         class="bg-gray-500 flex items-center justify-center text-white"
@@ -51,6 +53,8 @@
 const config = useRuntimeConfig();
 const { GMAP_API_KEY } = config.public;
 const location = "東京都港区新橋1-9-5KDX新橋駅前ビル";
+
+import earthBg from "~/assets/img/background/earth.png";
 
 const gridRows = [
   { label: "社名", value: "Innovation Style株式会社" },

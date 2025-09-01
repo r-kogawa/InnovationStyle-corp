@@ -121,19 +121,35 @@
     </div>
     <div class="w-full h-32 md:h-48 bg-gray-100 grid grid-cols-2 mt-4 md:mt-20">
       <NuxtLink
-        to="/about"
-        class="bg-slate-400 flex items-center justify-center text-white"
+        to="/company"
+        class="bg-gray-400 opacity-90 flex items-center justify-center text-white"
+        :style="{
+          backgroundImage: `url(${earthBg})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'left',
+          backgroundRepeat: 'no-repeat',
+        }"
       >
-        <span class="text-xl md:text-2xl"> 会社概要 </span>
+        <p class="text-xl md:text-2xl space-x-2">
+          <span class="font-orbitron">COMPANY</span>
+          <span class="text-lg md:text-xl">/</span>
+          <span class="text-sm md:text-base">会社概要</span>
+        </p>
       </NuxtLink>
       <NuxtLink
         to="/contact"
         class="bg-gray-500 flex items-center justify-center text-white"
       >
-        <span class="text-xl md:text-2xl"> お問いわせ </span>
+        <p class="text-xl md:text-2xl space-x-2">
+          <span class="font-orbitron">CONTACT</span>
+          <span class="text-lg md:text-xl">/</span>
+          <span class="text-sm md:text-base">お問いわせ</span>
+        </p>
       </NuxtLink>
     </div>
   </article>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import earthBg from "~/assets/img/background/earth.png";
+</script>

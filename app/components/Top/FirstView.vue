@@ -1,6 +1,12 @@
 <template>
   <div
     class="relative overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50 h-[calc(100vh-65px)]"
+    style="
+      background-image: url('~/assets/img/background/earth.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    "
   >
     <!-- カラーピッカー設定パネル -->
     <div
