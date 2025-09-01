@@ -4,11 +4,11 @@
   >
     <!-- カラーピッカー設定パネル -->
     <div
-      class="fixed bottom-10 md:bottom-10 right-3 md:right-5 z-50"
+      class="absolute top-10 right-3 md:right-5 z-50"
       v-if="showControls"
     >
       <div
-        class="bg-white/95 backdrop-blur-xl rounded-xl p-5 shadow-2xl border border-white/20 min-w-[200px]"
+        class="bg-white/95 backdrop-blur-xl rounded-lg p-5 shadow-2xl border border-white/20 min-w-[200px]"
       >
         <div class="flex items-center justify-between mb-4">
           <h3 class="text-base font-semibold text-gray-700">カラー設定</h3>
@@ -36,25 +36,24 @@
             v-model="customTextColor"
             @input="updateTextColor"
           />
+          {{ customTextColor }}
         </div>
         <div class="flex items-center justify-between mb-3">
-          <label
-            for="bubbleColor"
-            class="text-sm text-gray-600"
-          >
-            <span class="text-gray-700">バブル色:</span>
+          <label class="text-sm text-gray-600">
+            <span class="text-gray-700">背景色:</span>
           </label>
           <input
             type="color"
-            id="bubbleColor"
+            id="backgroundColor"
             class="w-10 h-8 border-none rounded-md cursor-pointer"
-            v-model="customBubbleColor"
+            v-model="customBackgroundColor"
             @input="updateBubbleColor"
           />
+          {{ customBackgroundColor }}
         </div>
         <button
           @click="resetColors"
-          class="w-full py-2 bg-indigo-600 text-white border-none rounded-md cursor-pointer text-sm transition-colors hover:bg-indigo-700"
+          class="w-full py-2 bg-slate-500 text-white border-none rounded-md cursor-pointer text-sm transition-colors hover:bg-indigo-700"
         >
           リセット
         </button>
@@ -64,31 +63,16 @@
     <!-- 設定ボタン -->
     <button
       @click="toggleControls"
-      class="fixed bottom-5 md:bottom-10 right-3 md:right-5 w-24 md:w-[150px] h-10 md:h-12 bg-white/90 backdrop-blur-xl border border-white/20 rounded-lg flex items-center justify-center cursor-pointer z-40 transition-all duration-300 shadow-lg hover:scale-110 hover:bg-white text-xs md:text-sm font-medium text-gray-700"
-      :class="{ 'bg-indigo-600 text-white': showControls }"
+      class="font-orbitron absolute top-5 md:top-10 right-3 md:right-5 w-24 md:w-[150px] h-10 md:h-12 bg-white/90 backdrop-blur-xl border border-white/20 rounded flex items-center justify-center cursor-pointer z-40 transition-all duration-300 shadow-lg hover:scale-110 hover:bg-white text-xs md:text-sm text-gray-700"
     >
-      自分色のスタイル
+      Setting Colors
     </button>
 
-    <!-- 浮遊する思考テキスト -->
+    <!-- Vanta Net背景 -->
     <div
-      class="absolute top-0 left-0 w-full h-screen pointer-events-none overflow-hidden"
-    >
-      <div
-        v-for="(thought, i) in thoughts"
-        :key="`thought-${i}`"
-        class="thought-bubble"
-        :style="getThoughtStyle(i)"
-      >
-        <div
-          class="thought-text cloud-decoration"
-          :style="getThoughtTextStyle()"
-        >
-          {{ thought }}
-          <div class="cloud-tail"></div>
-        </div>
-      </div>
-    </div>
+      ref="elRef"
+      class="absolute top-0 left-0 w-full h-screen pointer-events-none"
+    ></div>
 
     <!-- 思考の波 -->
     <div
@@ -104,25 +88,25 @@
     >
       <div class="max-w-6xl mx-auto px-4 md:px-8">
         <div class="text-center">
-          <div class="inline-block mb-4 md:mb-6">
+          <div class="mb-4">
             <span
-              class="inline-block px-3 md:px-4 py-1 md:py-2 text-xs font-semibold tracking-widest uppercase bg-white border border-gray-200 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
+              class="px-3 md:px-4 py-1 md:py-2 text-xs font-orbitron tracking-widest uppercase"
             >
               Innovation & Technology
             </span>
           </div>
           <h1
-            class="text-4xl md:text-7xl font-extrabold leading-tight mb-4 md:mb-6 text-gray-900 tracking-tight"
+            class="text-4xl md:text-7xl font-orbitron leading-tight mb-4 md:mb-6 text-gray-900 tracking-tight"
           >
             Innovation
             <span
-              class="bg-gradient-to-r from-slate-600 to-slate-400 bg-clip-text text-transparent"
+              class="bg-gradient-to-r from-slate-700 to-slate-500 bg-clip-text text-transparent"
             >
               Style
             </span>
           </h1>
           <p
-            class="text-lg md:text-xl text-gray-600 mb-8 md:mb-12 max-w-2xl mx-auto leading-relaxed px-4"
+            class="text-lg md:text-xl text-gray-700 mb-8 md:mb-12 max-w-2xl mx-auto leading-relaxed px-4"
           >
             イノベーションとテクノロジーで未来を形作る
           </p>
@@ -133,29 +117,64 @@
 </template>
 
 <script setup lang="ts">
-// 思考のテキスト配列
-const thoughts = [
-  "アイディア",
-  "ひらめき",
-  "創造力",
-  "革新的",
-  "問題解決",
-  "クリエイティブ",
-  "発想力",
-  "イノベーション",
-  "新しい視点",
-  "可能性",
-  "想像力",
-  "独創性",
-  "発見",
-  "洞察",
-  "思考",
-];
-
 // 色設定の状態管理
 const showControls = ref<boolean>(false);
-const customTextColor = ref<string>("#6b7280");
-const customBubbleColor = ref<string>("#ffffff");
+const customTextColor = ref<string>("#8b5cf6");
+const customBackgroundColor = ref<string>("#c9c9c9");
+
+const elRef = ref<HTMLElement | null>(null);
+const vantaEffect = ref<any>(null);
+
+onMounted(async () => {
+  const [THREE, NET] = await Promise.all([
+    // @ts-ignore
+    import("three"),
+    // @ts-ignore
+    import("vanta/dist/vanta.net.min"),
+  ]);
+
+  vantaEffect.value = NET.default({
+    el: elRef.value!,
+    THREE: THREE,
+    mouseControls: true,
+    touchControls: true,
+    gyroControls: false,
+    minHeight: 200.0,
+    minWidth: 200.0,
+    scale: 1.0,
+    scaleMobile: 1.0,
+    color: parseColorCode(customTextColor.value),
+    backgroundColor: parseColorCode(customBackgroundColor.value),
+    points: 12.0,
+    maxDistance: 20.0,
+    spacing: 15.0,
+  });
+});
+
+// 色の変更を監視してリアルタイム更新
+watch(customTextColor, (newColor) => {
+  if (vantaEffect.value) {
+    vantaEffect.value.setOptions({
+      color: parseColorCode(newColor),
+    });
+  }
+});
+
+watch(customBackgroundColor, (newColor) => {
+  if (vantaEffect.value) {
+    vantaEffect.value.setOptions({
+      backgroundColor: parseColorCode(newColor),
+    });
+  }
+});
+
+onBeforeUnmount(() => {
+  // コンポーネント破棄時にエフェクトを dispose
+  if (vantaEffect.value && typeof vantaEffect.value.destroy === "function") {
+    vantaEffect.value.destroy();
+    vantaEffect.value = null;
+  }
+});
 
 // コントロールパネルの表示切り替え
 const toggleControls = () => {
@@ -173,58 +192,8 @@ const updateBubbleColor = () => {
 
 // 色をリセット
 const resetColors = () => {
-  customTextColor.value = "#6b7280";
-  customBubbleColor.value = "#ffffff";
-};
-
-// 思考テキストのスタイルを取得
-const getThoughtTextStyle = () => {
-  return {
-    color: customTextColor.value,
-    backgroundColor: `${customBubbleColor.value}15`, // 透明度を追加
-  };
-};
-
-// 思考テキストのスタイルを生成
-const getThoughtStyle = (index: number) => {
-  const left = Math.random() * 90 + 5; // 5-95% (画面端を避ける)
-  const animationDelay = Math.random() * 15; // 0-15s (より広い間隔)
-  const animationDuration = Math.random() * 8 + 8; // 8-16s (ゆっくりと)
-  const fontSize = Math.random() * 8 + 12; // 12-20px
-  const opacity = Math.random() * 0.4 + 0.4; // 0.4-0.8
-
-  // 思考中をイメージした色合い（柔らかく、夢想的な色）
-  const colors = [
-    "#6b7280", // グレー系 - 深い思考
-    "#9ca3af", // ライトグレー - 迷い
-    "#64748b", // スレートグレー - 集中
-    "#78716c", // ウォームグレー - 温かい思考
-    "#71717a", // ニュートラルグレー - 冷静
-    "#6b6b6b", // ダークグレー - 真剣な考え
-    "#8b8b8b", // ミディアムグレー - 曖昧な思考
-    "#a3a3a3", // ソフトグレー - ぼんやりした思考
-  ];
-  const color = colors[Math.floor(Math.random() * colors.length)];
-
-  // フォントバリエーション（思考的なフォント）
-  const fonts = [
-    '"Kalam", cursive',
-    '"Caveat", cursive',
-    '"Comic Sans MS", cursive',
-    '"Marker Felt", fantasy',
-    '"Bradley Hand", cursive',
-  ];
-  const fontFamily = fonts[Math.floor(Math.random() * fonts.length)];
-
-  return {
-    left: `${left}%`,
-    animationDelay: `${animationDelay}s`,
-    animationDuration: `${animationDuration}s`,
-    fontSize: `${fontSize}px`,
-    opacity: opacity,
-    color: color,
-    fontFamily: fontFamily,
-  };
+  customTextColor.value = "#8b5cf6";
+  customBackgroundColor.value = "#f7fafc";
 };
 
 // 思考の波のスタイルを生成
@@ -238,6 +207,10 @@ const getWaveStyle = (index: number) => {
     top: `${top}%`,
     animationDelay: `${animationDelay}s`,
   };
+};
+
+const parseColorCode = (color: string) => {
+  return parseInt(color.replace("#", ""), 16);
 };
 </script>
 

@@ -1,5 +1,5 @@
 <template>
-  <main class="bg-slate-50">
+  <main class="bg-gradient-to-b from-white to-zinc-100">
     <LayoutsHeader />
     <NuxtPage />
     <LayoutsFooter />

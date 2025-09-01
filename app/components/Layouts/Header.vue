@@ -1,6 +1,6 @@
 <template>
   <header
-    class="relative bg-gradient-to-r from-slate-100 to-slate-200 border-b border-slate-300 shadow-sm"
+    class="relative bg-gradient-to-r from-slate-100 to-zinc-300 border-b border-slate-300 shadow-sm"
   >
     <div class="container mx-auto py-4 md:py-6 px-4 md:px-0">
       <div class="flex justify-between items-center">
@@ -15,11 +15,30 @@
           />
           <span class="text-xl md:text-2xl font-bold">Innovation Style</span>
         </NuxtLink>
-        <div class="hidden md:flex gap-10 items-center text-lg text-black">
-          <NuxtLink to="/">経営理念</NuxtLink>
-          <NuxtLink to="/about">事業内容</NuxtLink>
-          <NuxtLink to="/company">会社概要</NuxtLink>
-          <NuxtLink to="/contact">お問い合わせ</NuxtLink>
+        <div
+          class="hidden md:flex gap-10 items-center text-lg text-slate-700 font-orbitron"
+        >
+          <NuxtLink
+            to="/about"
+            class="hover:border-b hover:border-slate-500 transition-all duration-50"
+          >
+            ABOUT
+          </NuxtLink>
+          <NuxtLink
+            to="/service"
+            class="hover:border-b hover:border-slate-500 transition-all duration-50"
+            >SERVICE</NuxtLink
+          >
+          <NuxtLink
+            to="/company"
+            class="hover:border-b hover:border-slate-500 transition-all duration-50"
+            >COMPANY</NuxtLink
+          >
+          <NuxtLink
+            to="/contact"
+            class="hover:border-b hover:border-slate-500 transition-all duration-50"
+            >CONTACT</NuxtLink
+          >
         </div>
         <div class="md:hidden">
           <button @click="isMenuOpen = !isMenuOpen">
@@ -37,28 +56,36 @@
     >
       <div class="grid grid-cols-1 gap-2 h-full">
         <NuxtLink
-          class="text-left border-b border-slate-300 p-2"
-          to="/"
-        >
-          経営理念
-        </NuxtLink>
-        <NuxtLink
-          class="text-left border-b border-slate-300 p-2"
+          class="flex items-center gap-1 text-left border-b border-slate-300 p-2 font-orbitron"
           to="/about"
         >
-          事業内容
+          <h2 class="font-orbitron text-slate-700">ABOUT</h2>
+          <span class="text-lg text-slate-500">/</span>
+          <p class="text-sm text-gray-500">会社概要</p>
         </NuxtLink>
         <NuxtLink
-          class="text-left border-b border-slate-300 p-2"
+          class="flex items-center gap-1 text-left border-b border-slate-300 p-2 font-orbitron"
+          to="/service"
+        >
+          <h2 class="font-orbitron text-slate-700">SERVICE</h2>
+          <span class="text-lg text-slate-500">/</span>
+          <p class="text-sm text-gray-500">事業内容</p>
+        </NuxtLink>
+        <NuxtLink
+          class="flex items-center gap-1 text-left border-b border-slate-300 p-2 font-orbitron"
           to="/company"
         >
-          会社概要
+          <h2 class="font-orbitron text-slate-700">COMPANY</h2>
+          <span class="text-lg text-slate-500">/</span>
+          <p class="text-sm text-gray-500">会社概要</p>
         </NuxtLink>
         <NuxtLink
-          class="text-left border-b border-slate-300 p-2"
+          class="flex items-center gap-1 text-left border-b border-slate-300 p-2 font-orbitron"
           to="/contact"
         >
-          お問い合わせ
+          <h2 class="font-orbitron text-slate-700">CONTACT</h2>
+          <span class="text-lg text-slate-500">/</span>
+          <p class="text-sm text-gray-500">お問い合わせ</p>
         </NuxtLink>
       </div>
     </div>
