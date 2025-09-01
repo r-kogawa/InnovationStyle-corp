@@ -18,7 +18,7 @@
       :placeholder="placeholder"
       :type="type || 'text'"
       :disabled="disabled"
-      class="w-full border border-gray-300 rounded px-2 py-1 mt-2 focus:outline-red-200"
+      class="w-full border border-gray-300 rounded px-2 py-1 mt-2 focus:outline-slate-400"
       :class="[
         disabled ? 'bg-gray-200' : '',
         error != '' && error != null ? 'bg-red-200' : '',
