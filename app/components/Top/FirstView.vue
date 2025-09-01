@@ -1,6 +1,6 @@
 <template>
   <div
-    class="relative overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50 min-h-screen"
+    class="relative overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50 h-[calc(100vh-65px)]"
   >
     <!-- カラーピッカー設定パネル -->
     <div
@@ -75,9 +75,7 @@
     ></div>
 
     <!-- コンテンツエリア -->
-    <div
-      class="relative z-10 flex items-center justify-center h-[calc(100vh-90px)]"
-    >
+    <div class="relative z-10 flex items-center justify-center h-full">
       <div class="max-w-6xl mx-auto px-4 md:px-8">
         <div class="text-center">
           <div class="mb-4">

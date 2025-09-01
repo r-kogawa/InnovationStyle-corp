@@ -59,14 +59,16 @@
     >
       <div class="grid grid-cols-1 gap-2 h-full">
         <NuxtLink
+          @click="isMenuOpen = false"
           class="flex items-center gap-1 text-left border-b border-slate-300 p-2 font-orbitron"
           to="/about"
         >
           <h2 class="font-orbitron text-slate-700">ABOUT US</h2>
           <span class="text-lg text-slate-500">/</span>
-          <p class="text-sm text-gray-500">会社概要</p>
+          <p class="text-sm text-gray-500">私たちについて</p>
         </NuxtLink>
         <NuxtLink
+          @click="isMenuOpen = false"
           class="flex items-center gap-1 text-left border-b border-slate-300 p-2 font-orbitron"
           to="/service"
         >
@@ -75,6 +77,7 @@
           <p class="text-sm text-gray-500">事業内容</p>
         </NuxtLink>
         <NuxtLink
+          @click="isMenuOpen = false"
           class="flex items-center gap-1 text-left border-b border-slate-300 p-2 font-orbitron"
           to="/company"
         >
@@ -83,6 +86,7 @@
           <p class="text-sm text-gray-500">会社概要</p>
         </NuxtLink>
         <NuxtLink
+          @click="isMenuOpen = false"
           class="flex items-center gap-1 text-left border-b border-slate-300 p-2 font-orbitron"
           to="/contact"
         >
