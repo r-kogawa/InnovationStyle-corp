@@ -1,6 +1,6 @@
 <template>
   <header
-    class="relative bg-gradient-to-r from-slate-100 to-zinc-300 border-b border-slate-300 shadow-sm"
+    class="relative bg-gradient-to-br from-slate-50 to-zinc-200 border-b border-slate-300 shadow-sm"
   >
     <div class="container mx-auto py-4 md:py-6 px-4 md:px-0">
       <div class="flex justify-between items-center">
@@ -52,7 +52,7 @@
     </div>
     <div
       v-if="isMenuOpen"
-      class="absolute top-16 left-0 w-full h-fit z-50 bg-gradient-to-r from-slate-200 to-white border-b border-slate-300"
+      class="absolute top-16 left-0 w-full h-fit z-50 bg-gradient-to-br from-slate-50 to-zinc-200 border-b border-slate-300"
     >
       <div class="grid grid-cols-1 gap-2 h-full">
         <NuxtLink

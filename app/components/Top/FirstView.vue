@@ -108,7 +108,7 @@
           <p
             class="text-lg md:text-xl text-gray-700 mb-8 md:mb-12 max-w-2xl mx-auto leading-relaxed px-4"
           >
-            イノベーションとテクノロジーで未来を形作る
+            イノベーションとテクノロジーで<br />未来を形作る
           </p>
         </div>
       </div>
