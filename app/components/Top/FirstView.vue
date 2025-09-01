@@ -4,11 +4,11 @@
   >
     <!-- カラーピッカー設定パネル -->
     <div
-      class="absolute top-10 right-3 md:right-5 z-50"
+      class="absolute bottom-5 md:bottom-10 right-3 md:right-5 z-50"
       v-if="showControls"
     >
       <div
-        class="bg-white/95 backdrop-blur-xl rounded-lg p-5 shadow-2xl border border-white/20 min-w-[200px]"
+        class="bg-white/95 backdrop-blur-xl rounded-lg p-3 shadow-2xl border border-white/20 min-w-[200px]"
       >
         <div class="flex items-center justify-between mb-4">
           <h3 class="text-base font-semibold text-gray-700">カラー設定</h3>
@@ -63,7 +63,7 @@
     <!-- 設定ボタン -->
     <button
       @click="toggleControls"
-      class="font-orbitron absolute top-5 md:top-10 right-3 md:right-5 w-24 md:w-[150px] h-10 md:h-12 bg-white/90 backdrop-blur-xl border border-white/20 rounded flex items-center justify-center cursor-pointer z-40 transition-all duration-300 shadow-lg hover:scale-110 hover:bg-white text-xs md:text-sm text-gray-700"
+      class="font-orbitron absolute bottom-5 md:bottom-10 right-3 md:right-5 w-24 md:w-[150px] h-10 md:h-12 bg-white/90 backdrop-blur-xl border border-white/20 rounded flex items-center justify-center cursor-pointer z-40 transition-all duration-300 shadow-lg hover:scale-110 hover:bg-white text-xs md:text-sm text-gray-700"
     >
       Setting Colors
     </button>
