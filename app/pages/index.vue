@@ -18,9 +18,8 @@
             </div>
           </div>
         </div>
-
         <!-- お知らせアイテム -->
-        <div class="space-y-2">
+        <div class="space-y-4">
           <NewsItem
             v-for="news in newsItems"
             :key="news.id"
@@ -33,6 +32,7 @@
         <!-- もっと見るボタン -->
         <div class="text-center mt-12">
           <button
+            @click="navigateTo('/news')"
             class="inline-flex items-center font-orbitron px-6 py-3 transition-all duration-300 cursor-pointer"
           >
             and more
@@ -68,9 +68,6 @@
             </div>
           </div>
         </div>
-
-        <div class="space-y-4"></div>
-
         <!-- FAQアイテム -->
         <div class="space-y-4">
           <FaqAccordion
@@ -82,6 +79,7 @@
           <!-- もっと見るボタン -->
           <div class="text-center mt-12">
             <button
+              @click="navigateTo('/faq')"
               class="inline-flex items-center font-orbitron px-6 py-3 transition-all duration-300 cursor-pointer"
             >
               and more

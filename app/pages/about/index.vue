@@ -3,8 +3,8 @@
     <div class="w-full h-40 md:h-60 bg-gray-100">
       <div class="h-full">
         <div class="flex flex-col gap-2 items-center justify-center h-full">
-          <h1 class="text-3xl font-orbitron">ABOUT</h1>
-          <p class="text-xl text-slate-500">会社概要</p>
+          <h1 class="text-3xl font-orbitron">ABOUT US</h1>
+          <p class="text-xl text-slate-500">私たちについて</p>
         </div>
       </div>
     </div>

@@ -22,23 +22,26 @@
             to="/about"
             class="hover:border-b hover:border-slate-500 transition-all duration-50"
           >
-            ABOUT
+            ABOUT US
           </NuxtLink>
           <NuxtLink
             to="/service"
             class="hover:border-b hover:border-slate-500 transition-all duration-50"
-            >SERVICE</NuxtLink
           >
+            SERVICE
+          </NuxtLink>
           <NuxtLink
             to="/company"
             class="hover:border-b hover:border-slate-500 transition-all duration-50"
-            >COMPANY</NuxtLink
           >
+            COMPANY
+          </NuxtLink>
           <NuxtLink
             to="/contact"
             class="hover:border-b hover:border-slate-500 transition-all duration-50"
-            >CONTACT</NuxtLink
           >
+            CONTACT
+          </NuxtLink>
         </div>
         <div class="md:hidden">
           <button @click="isMenuOpen = !isMenuOpen">
@@ -59,7 +62,7 @@
           class="flex items-center gap-1 text-left border-b border-slate-300 p-2 font-orbitron"
           to="/about"
         >
-          <h2 class="font-orbitron text-slate-700">ABOUT</h2>
+          <h2 class="font-orbitron text-slate-700">ABOUT US</h2>
           <span class="text-lg text-slate-500">/</span>
           <p class="text-sm text-gray-500">会社概要</p>
         </NuxtLink>
