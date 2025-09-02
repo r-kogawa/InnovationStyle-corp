@@ -4,8 +4,8 @@
       @click="isOpen = !isOpen"
       class="w-full px-6 md:px-8 py-4 text-left flex items-center justify-between"
     >
-      <h3 class="text-md md:text-lg font-medium text-slate-700 pr-4">
-        {{ title }}
+      <h3 class="text-md md:text-lg font-orbitron text-slate-700 pr-4">
+        Q：{{ title }}
       </h3>
       <div class="flex-shrink-0">
         <svg
@@ -26,8 +26,11 @@
     </button>
     <div
       v-show="isOpen"
-      class="px-6 md:px-8 pb-6"
+      class="px-6 md:px-8 pb-6 flex"
     >
+      <h3 class="text-md md:text-lg font-orbitron pr-4 text-emerald-500">
+        A：
+      </h3>
       <p class="text-slate-700 leading-relaxed">
         {{ content }}
       </p>

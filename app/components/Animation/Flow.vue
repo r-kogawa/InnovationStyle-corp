@@ -3,7 +3,7 @@
     ref="root"
     class="bg"
   >
-    <span class="bg-wrap w-fit">
+    <span class="bg-wrap">
       <span class="inn">
         <slot />
       </span>
@@ -57,7 +57,7 @@ onBeforeUnmount(() => {
 .bg .bg-wrap .inn {
   color: #fff;
   font-weight: bold;
-  padding: 15px 15px;
+  padding: 10px 20px;
   position: relative;
   z-index: 1;
 }

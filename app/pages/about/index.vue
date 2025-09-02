@@ -25,14 +25,20 @@
         <!-- 経営理念イメージ -->
         <section class="flex justify-center items-center">
           <div
-            class="space-y-10 w-full max-w-xl h-80 flex flex-col items-center justify-center"
+            class="space-y-10 w-full max-w-xl h-52 flex flex-col items-center justify-center"
           >
             <!-- テクノロジー・イノベーションのイラスト -->
             <h2 class="text-left">
-              <div class="flex flex-col gap-2 text-3xl md:text-4xl">
-                <AnimationFlow> PHILOSOPHY </AnimationFlow>
-                <AnimationFlow> 経営理念 </AnimationFlow>
-                <AnimationFlow> "革新的な発想と先進技術の融合" </AnimationFlow>
+              <div class="flex flex-col gap-2">
+                <div class="text-3xl md:text-4xl">
+                  <AnimationFlow>PHILOSOPHY</AnimationFlow>
+                </div>
+                <div class="text-3xl md:text-4xl">
+                  <AnimationFlow>経営理念</AnimationFlow>
+                </div>
+                <div class="text-xl md:text-2xl">
+                  <AnimationFlow>"革新的な発想と先進技術の融合"</AnimationFlow>
+                </div>
               </div>
             </h2>
           </div>
@@ -95,13 +101,19 @@
         <!-- ミッション・経営理念イメージ -->
         <section class="flex justify-center items-center order-1 md:order-2">
           <div
-            class="space-y-4 w-full max-w-xl h-72 flex flex-col items-center justify-center"
+            class="space-y-4 w-full max-w-xl h-52 flex flex-col items-center justify-center"
           >
             <h2 class="text-left">
-              <div class="flex flex-col gap-2 text-3xl md:text-4xl">
-                <AnimationFlow> MISSION </AnimationFlow>
-                <AnimationFlow> ミッション </AnimationFlow>
-                <AnimationFlow> "未来を形作るイノベーション" </AnimationFlow>
+              <div class="flex flex-col gap-2">
+                <div class="text-3xl md:text-4xl">
+                  <AnimationFlow>MISSION</AnimationFlow>
+                </div>
+                <div class="text-3xl md:text-4xl">
+                  <AnimationFlow>ミッション</AnimationFlow>
+                </div>
+                <div class="text-xl md:text-2xl">
+                  <AnimationFlow>"未来を形作るイノベーション"</AnimationFlow>
+                </div>
               </div>
             </h2>
           </div>
@@ -109,9 +121,8 @@
       </div>
     </div>
     <div class="w-full mt-4 md:mt-20">
-      <AnimationMatrix>
-        <GridLinks :links="gridLinks" />
-      </AnimationMatrix>
+      <AnimationMatrix></AnimationMatrix>
+      <GridLinks :links="gridLinks" />
     </div>
   </article>
 </template>
