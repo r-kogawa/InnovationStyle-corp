@@ -59,8 +59,8 @@
     </div>
     <!-- モバイルメニューのアニメーション -->
     <Transition
-      enter-active-class="transition-all duration-300 ease-out"
-      leave-active-class="transition-all duration-300 ease-in"
+      enter-active-class="transition-all duration-200 ease-out"
+      leave-active-class="transition-all duration-200 ease-in"
       enter-from-class="opacity-0 -translate-y-4"
       enter-to-class="opacity-100 translate-y-0"
       leave-from-class="opacity-100 translate-y-0"
@@ -68,7 +68,7 @@
     >
       <div
         v-if="isMenuOpen"
-        class="absolute top-16 left-0 w-full h-fit z-50 bg-gradient-to-br from-slate-50 to-zinc-200 border-b border-slate-300 shadow-lg"
+        class="absolute top-18 left-0 w-full h-fit z-50 bg-gradient-to-br from-slate-50 to-zinc-200 border-b border-slate-300 shadow-lg"
       >
         <div class="grid grid-cols-1 gap-2 h-full">
           <NuxtLink
