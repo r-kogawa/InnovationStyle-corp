@@ -1,5 +1,5 @@
 <template>
-  <article class="bg-gradient-to-br from-slate-50 to-violet-50">
+  <article class="bg-gradient-to-br from-white to-stone-50">
     <div class="relative w-full h-40 md:h-60 bg-white overflow-hidden">
       <!-- 背景画像レイヤー（opacity適用） -->
       <div
@@ -20,25 +20,31 @@
       </div>
     </div>
     <!-- メインコンテンツ -->
-    <div class="max-w-screen-2xl mx-auto px-4 md:px-8 space-y-10">
+    <div class="max-w-screen-2xl mx-auto px-4 md:px-8 py-10">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         <!-- 経営理念イメージ -->
         <section class="flex justify-center items-center">
           <div
-            class="space-y-10 w-full max-w-md h-80 flex flex-col items-center justify-center p-8"
+            class="space-y-10 w-full max-w-xl h-80 flex flex-col items-center justify-center"
           >
             <!-- テクノロジー・イノベーションのイラスト -->
-            <div class="text-center">
-              <div class="mb-4">
-                <span
-                  class="text-3xl md:text-4xl font-semibold tracking-wider uppercase bg-gradient-to-r from-slate-800 to-slate-600 bg-clip-text text-transparent"
-                >
-                  PHILOSOPHY
+            <h2 class="text-left">
+              <div
+                ref="bgPhilo"
+                class="flex flex-col gap-2 text-3xl md:text-4xl bg"
+              >
+                <span class="bg-wrap w-fit">
+                  <span class="inn">PHILOSOPHY</span>
+                </span>
+                <span class="bg-wrap w-fit">
+                  <span class="inn">経営理念</span>
+                </span>
+                <span class="bg-wrap w-fit">
+                  <span class="inn">"革新的な発想と先進技術の融合"</span>
                 </span>
               </div>
-              <h2 class="font-bold text-gray-900">経営理念</h2>
-            </div>
-            <h3
+            </h2>
+            <!-- <h3
               class="text-lg md:text-xl font-bold text-gray-900 leading-tight"
             >
               <span
@@ -46,7 +52,7 @@
               >
                 "革新的な発想と先進技術の融合"
               </span>
-            </h3>
+            </h3> -->
           </div>
         </section>
         <!-- ABOUT セクション -->
@@ -77,7 +83,7 @@
         </section>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         <!-- MISSION セクション -->
         <section class="order-2 md:order-1 p-1 md:p-14">
           <!-- ミッション詳細 -->
@@ -103,29 +109,24 @@
         <!-- ミッション・経営理念イメージ -->
         <section class="flex justify-center items-center order-1 md:order-2">
           <div
-            class="space-y-10 w-full max-w-md h-80 bg-gradient-to-br from-slate-50 to-zinc-200 rounded-xl border border-gray-100 shadow-lg flex flex-col items-center justify-center p-8"
+            class="space-y-4 w-full max-w-xl h-72 flex flex-col items-center justify-center"
           >
-            <div class="text-center">
-              <span
-                class="text-3xl md:text-4xl font-semibold tracking-wider uppercase bg-gradient-to-r from-slate-700 to-slate-500 bg-clip-text text-transparent"
+            <h2 class="text-left">
+              <div
+                ref="bgMission"
+                class="flex flex-col gap-2 text-3xl md:text-4xl bg"
               >
-                Mission
-              </span>
-              <h2
-                class="font-bold bg-gradient-to-r from-slate-600 to-slate-400 bg-clip-text text-transparent"
-              >
-                ミッション
-              </h2>
-            </div>
-            <h3
-              class="text-lg md:text-xl font-bold text-gray-900 leading-tight"
-            >
-              <span
-                class="bg-gradient-to-r from-slate-800 to-slate-600 bg-clip-text text-transparent"
-              >
-                "未来を形作るイノベーション"
-              </span>
-            </h3>
+                <span class="bg-wrap w-fit">
+                  <span class="inn">MISSION</span>
+                </span>
+                <span class="bg-wrap w-fit">
+                  <span class="inn">ミッション</span>
+                </span>
+                <span class="bg-wrap w-full">
+                  <span class="inn">"未来を形作るイノベーション"</span>
+                </span>
+              </div>
+            </h2>
           </div>
         </section>
       </div>
@@ -137,6 +138,7 @@
 </template>
 
 <script setup lang="ts">
+import missionBg from "~/assets/img/illust/mission.png";
 import aboutUsBg from "~/assets/img/illust/about_us.png";
 import earthBg from "~/assets/img/background/earth.png";
 import networkBg from "~/assets/img/illust/network.png";
@@ -155,4 +157,74 @@ const gridLinks = [
     description: "お問いわせ",
   },
 ];
+
+// アニメーション用のref
+const bgPhilo = ref<HTMLElement>();
+const bgMission = ref<HTMLElement>();
+
+// ページマウント時にIntersection Observerを設定
+onMounted(() => {
+  if (bgPhilo.value && bgMission.value) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // 要素が画面に表示されたらアニメーションクラスを追加
+            entry.target.classList.add("is-animated");
+            // 一度アニメーションが開始されたらObserverを停止
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.1, // 要素の10%が見えた時にトリガー
+      }
+    );
+
+    observer.observe(bgPhilo.value);
+    observer.observe(bgMission.value);
+  }
+});
 </script>
+
+<style scoped>
+.bg .bg-wrap {
+  position: relative;
+  margin-top: 5px;
+}
+.bg.is-animated .bg-wrap::before {
+  animation: bg 2.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  background: linear-gradient(to right, #2b2b2b 0%, #646464 50%, #c3c3c3 100%);
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform-origin: left center;
+}
+.bg .bg-wrap .inn {
+  color: #fff;
+  font-weight: bold;
+  padding: 5px 15px;
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes bg {
+  0% {
+    opacity: 0;
+    transform: scaleX(0) translateX(-5%);
+  }
+  30% {
+    transform: scaleX(1) translateX(0);
+  }
+  100% {
+    transform: scaleX(1) translateX(0);
+  }
+  30%,
+  100% {
+    opacity: 1;
+  }
+}
+</style>
