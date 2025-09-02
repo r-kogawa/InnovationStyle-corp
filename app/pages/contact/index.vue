@@ -1,10 +1,21 @@
 <template>
-  <article>
-    <div class="w-full h-40 md:h-60 bg-gray-100">
-      <div class="h-full">
+  <article class="relative bg-gradient-to-br from-white to-stone-50">
+    <div class="relative w-full h-40 md:h-60 bg-gray-100 overflow-hidden">
+      <!-- 背景画像レイヤー（opacity適用） -->
+      <div
+        class="absolute inset-0 opacity-50"
+        :style="{
+          backgroundImage: `url(${networkBg})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+        }"
+      ></div>
+      <!-- コンテンツレイヤー -->
+      <div class="z-10 h-full">
         <div class="flex flex-col gap-2 items-center justify-center h-full">
-          <h1 class="text-3xl font-orbitron">CONTACT</h1>
-          <p class="text-xl text-gray-500">お問い合わせ</p>
+          <h1 class="text-3xl font-orbitron drop-shadow-lg">CONTACT</h1>
+          <p class="text-xl text-gray-700 drop-shadow-md">お問い合わせ</p>
         </div>
       </div>
     </div>
@@ -55,7 +66,7 @@
         />
       </div>
     </div>
-    <div class="max-w-screen-sm mx-auto my-10 flex justify-center">
+    <div class="max-w-screen-sm mx-auto py-10 flex justify-center">
       <button
         @click="() => console.log('送信')"
         class="w-fit bg-slate-700 text-white py-2 px-24 rounded-full cursor-pointer"
@@ -66,6 +77,8 @@
   </article>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import networkBg from "~/assets/img/illust/network.png";
+</script>
 
 <style scoped></style>

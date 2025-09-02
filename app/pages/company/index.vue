@@ -1,22 +1,27 @@
 <template>
-  <section>
-    <div
-      class="w-full h-40 md:h-60 bg-white"
-      :style="{
-        backgroundImage: `url(${earthBg})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'left',
-        backgroundRepeat: 'no-repeat',
-      }"
-    >
-      <div class="h-full">
+  <article class="relative bg-gradient-to-br from-white to-stone-50">
+    <div class="relative w-full h-40 md:h-60 bg-white overflow-hidden">
+      <!-- 背景画像レイヤー（opacity適用） -->
+      <div
+        class="absolute inset-0 opacity-60"
+        :style="{
+          backgroundImage: `url(${earthBg})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'left',
+          backgroundRepeat: 'no-repeat',
+        }"
+      ></div>
+      <!-- コンテンツレイヤー -->
+      <div class="z-10 h-full">
         <div class="flex flex-col gap-2 items-center justify-center h-full">
-          <h1 class="text-3xl font-orbitron">Company</h1>
-          <p class="text-xl text-gray-500">会社概要</p>
+          <h1 class="text-3xl font-orbitron drop-shadow-lg">Company</h1>
+          <p class="text-xl text-gray-900 drop-shadow-md">会社概要</p>
         </div>
       </div>
     </div>
-    <div class="max-w-screen-md mx-auto py-10 text-sm md:text-lg px-4 md:px-0">
+    <div
+      class="max-w-screen-md mx-auto pt-10 pb-4 text-sm md:text-lg px-4 md:px-0"
+    >
       <CompanyGridRow
         v-for="row in gridRows"
         :key="row.label"
@@ -24,7 +29,7 @@
         :value="row.value"
       />
 
-      <div class="py-10 md:py-18">
+      <div class="py-10">
         <iframe
           :src="`https://www.google.com/maps/embed/v1/place?key=${GMAP_API_KEY}&zoom=15&q=${location}`"
           allowfullscreen
@@ -38,15 +43,57 @@
         </iframe>
       </div>
     </div>
-    <div class="w-full h-32 md:h-48 bg-gray-100 grid grid-cols-1 mt-4 md:mt-20">
+    <div
+      class="w-full h-28 md:h-48 bg-gray-100 grid grid-cols-2 mt-4 border-t border-slate-200"
+    >
       <NuxtLink
-        to="/contact"
-        class="bg-gray-500 flex items-center justify-center text-white"
+        to="/company"
+        class="relative bg-gray-50 flex items-center justify-center overflow-hidden"
       >
-        <span class="text-xl md:text-2xl"> お問いわせ </span>
+        <!-- 背景画像レイヤー（opacity適用） -->
+        <div
+          class="absolute inset-0 opacity-30"
+          :style="{
+            backgroundImage: `url(${aboutUsBg})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'left',
+            backgroundRepeat: 'no-repeat',
+          }"
+        ></div>
+        <!-- コンテンツレイヤー -->
+        <p
+          class="relative flex flex-col md:flex-row items-center justify-center z-10 text-xl md:text-2xl space-x-2 drop-shadow-lg"
+        >
+          <span class="font-orbitron">ABOUT US</span>
+          <span class="text-lg md:text-xl hidden md:block">/</span>
+          <span class="text-sm md:text-base text-gray-900">私たちについて</span>
+        </p>
+      </NuxtLink>
+      <NuxtLink
+        to="/company"
+        class="relative bg-gray-200 flex items-center justify-center overflow-hidden"
+      >
+        <!-- 背景画像レイヤー（opacity適用） -->
+        <div
+          class="absolute inset-0 opacity-30"
+          :style="{
+            backgroundImage: `url(${networkBg})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'left',
+            backgroundRepeat: 'no-repeat',
+          }"
+        ></div>
+        <!-- コンテンツレイヤー -->
+        <p
+          class="relative flex flex-col md:flex-row items-center justify-center z-10 text-xl md:text-2xl space-x-2 drop-shadow-lg"
+        >
+          <span class="font-orbitron">CONTACT</span>
+          <span class="text-lg md:text-xl hidden md:block">/</span>
+          <span class="text-sm md:text-base text-gray-900">お問いわせ</span>
+        </p>
       </NuxtLink>
     </div>
-  </section>
+  </article>
 </template>
 
 <script setup lang="ts">
@@ -55,6 +102,8 @@ const { GMAP_API_KEY } = config.public;
 const location = "東京都港区新橋1-9-5KDX新橋駅前ビル";
 
 import earthBg from "~/assets/img/background/earth.png";
+import aboutUsBg from "~/assets/img/illust/about_us.png";
+import networkBg from "~/assets/img/illust/network.png";
 
 const gridRows = [
   { label: "社名", value: "Innovation Style株式会社" },

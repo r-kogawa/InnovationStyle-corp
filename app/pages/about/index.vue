@@ -1,26 +1,37 @@
 <template>
-  <article>
-    <div class="w-full h-40 md:h-60 bg-gray-100">
-      <div class="h-full">
+  <article class="bg-gradient-to-br from-slate-50 to-violet-50">
+    <div class="relative w-full h-40 md:h-60 bg-white overflow-hidden">
+      <!-- 背景画像レイヤー（opacity適用） -->
+      <div
+        class="absolute inset-0 opacity-40"
+        :style="{
+          backgroundImage: `url(${aboutUsBg})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'left',
+          backgroundRepeat: 'no-repeat',
+        }"
+      ></div>
+      <!-- コンテンツレイヤー -->
+      <div class="z-10 h-full">
         <div class="flex flex-col gap-2 items-center justify-center h-full">
-          <h1 class="text-3xl font-orbitron">ABOUT US</h1>
-          <p class="text-xl text-slate-500">私たちについて</p>
+          <h1 class="text-3xl font-orbitron drop-shadow-lg">ABOUT US</h1>
+          <p class="text-xl text-gray-900 drop-shadow-md">私たちについて</p>
         </div>
       </div>
     </div>
     <!-- メインコンテンツ -->
-    <div class="max-w-screen-2xl mx-auto py-16 px-4 md:px-8 space-y-14">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-        <!-- 会社概要イメージ -->
+    <div class="max-w-screen-2xl mx-auto px-4 md:px-8 space-y-10">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <!-- 経営理念イメージ -->
         <section class="flex justify-center items-center">
           <div
-            class="space-y-10 w-full max-w-md h-80 bg-gradient-to-br from-slate-50 to-zinc-200 rounded-xl border border-gray-100 shadow-lg flex flex-col items-center justify-center p-8"
+            class="space-y-10 w-full max-w-md h-80 flex flex-col items-center justify-center p-8"
           >
             <!-- テクノロジー・イノベーションのイラスト -->
             <div class="text-center">
               <div class="mb-4">
                 <span
-                  class="text-3xl md:text-4xl font-semibold tracking-wider uppercase bg-gradient-to-r from-slate-700 to-slate-500 bg-clip-text text-transparent"
+                  class="text-3xl md:text-4xl font-semibold tracking-wider uppercase bg-gradient-to-r from-slate-800 to-slate-600 bg-clip-text text-transparent"
                 >
                   PHILOSOPHY
                 </span>
@@ -119,31 +130,53 @@
         </section>
       </div>
     </div>
-    <div class="w-full h-32 md:h-48 bg-gray-100 grid grid-cols-2 mt-4 md:mt-20">
+    <div
+      class="w-full h-32 md:h-48 bg-gray-100 grid grid-cols-2 mt-4 md:mt-20 border-t border-slate-200"
+    >
       <NuxtLink
         to="/company"
-        class="bg-gray-400 opacity-90 flex items-center justify-center text-white"
-        :style="{
-          backgroundImage: `url(${earthBg})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'left',
-          backgroundRepeat: 'no-repeat',
-        }"
+        class="relative bg-gray-50 flex items-center justify-center overflow-hidden"
       >
-        <p class="text-xl md:text-2xl space-x-2">
+        <!-- 背景画像レイヤー（opacity適用） -->
+        <div
+          class="absolute inset-0 opacity-30"
+          :style="{
+            backgroundImage: `url(${earthBg})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'left',
+            backgroundRepeat: 'no-repeat',
+          }"
+        ></div>
+        <!-- コンテンツレイヤー -->
+        <p
+          class="relative flex flex-col md:flex-row items-center justify-center z-10 text-xl md:text-2xl space-x-2 drop-shadow-lg"
+        >
           <span class="font-orbitron">COMPANY</span>
-          <span class="text-lg md:text-xl">/</span>
-          <span class="text-sm md:text-base">会社概要</span>
+          <span class="text-lg md:text-xl hidden md:block">/</span>
+          <span class="text-sm md:text-base text-gray-900">会社概要</span>
         </p>
       </NuxtLink>
       <NuxtLink
-        to="/contact"
-        class="bg-gray-500 flex items-center justify-center text-white"
+        to="/company"
+        class="relative bg-gray-200 flex items-center justify-center overflow-hidden"
       >
-        <p class="text-xl md:text-2xl space-x-2">
+        <!-- 背景画像レイヤー（opacity適用） -->
+        <div
+          class="absolute inset-0 opacity-30"
+          :style="{
+            backgroundImage: `url(${networkBg})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'left',
+            backgroundRepeat: 'no-repeat',
+          }"
+        ></div>
+        <!-- コンテンツレイヤー -->
+        <p
+          class="relative flex flex-col md:flex-row items-center justify-center z-10 text-xl md:text-2xl space-x-2 drop-shadow-lg"
+        >
           <span class="font-orbitron">CONTACT</span>
-          <span class="text-lg md:text-xl">/</span>
-          <span class="text-sm md:text-base">お問いわせ</span>
+          <span class="text-lg md:text-xl hidden md:block">/</span>
+          <span class="text-sm md:text-base text-gray-900">お問いわせ</span>
         </p>
       </NuxtLink>
     </div>
@@ -151,5 +184,7 @@
 </template>
 
 <script setup lang="ts">
+import aboutUsBg from "~/assets/img/illust/about_us.png";
 import earthBg from "~/assets/img/background/earth.png";
+import networkBg from "~/assets/img/illust/network.png";
 </script>
