@@ -22,6 +22,7 @@
       :required="required"
       :name="name"
       :disabled="disabled"
+      :placeholder="placeholder"
       @blur="IsError"
     />
     <p
@@ -42,6 +43,7 @@ interface Props {
   name?: string;
   disabled?: boolean;
   minLength?: number;
+  placeholder?: string;
 }
 
 interface Emits {

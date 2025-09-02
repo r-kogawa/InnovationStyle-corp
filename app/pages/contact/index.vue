@@ -85,18 +85,20 @@
 </template>
 
 <script setup lang="ts">
+import earthBg from "~/assets/img/background/earth.png";
+import aboutUsBg from "~/assets/img/illust/about_us.png";
 import networkBg from "~/assets/img/illust/network.png";
 
 const gridLinks = [
   {
     to: "/about",
-    image: networkBg,
+    image: aboutUsBg,
     title: "ABOUT US",
     description: "私たちについて",
   },
   {
     to: "/company",
-    image: networkBg,
+    image: earthBg,
     title: "COMPANY",
     description: "会社概要",
   },
