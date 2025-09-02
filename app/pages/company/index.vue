@@ -43,55 +43,8 @@
         </iframe>
       </div>
     </div>
-    <div
-      class="w-full h-28 md:h-48 bg-gray-100 grid grid-cols-2 mt-4 border-t border-slate-200"
-    >
-      <NuxtLink
-        to="/company"
-        class="relative bg-gray-50 flex items-center justify-center overflow-hidden"
-      >
-        <!-- 背景画像レイヤー（opacity適用） -->
-        <div
-          class="absolute inset-0 opacity-30"
-          :style="{
-            backgroundImage: `url(${aboutUsBg})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'left',
-            backgroundRepeat: 'no-repeat',
-          }"
-        ></div>
-        <!-- コンテンツレイヤー -->
-        <p
-          class="relative flex flex-col md:flex-row items-center justify-center z-10 text-xl md:text-2xl space-x-2 drop-shadow-lg"
-        >
-          <span class="font-orbitron">ABOUT US</span>
-          <span class="text-lg md:text-xl hidden md:block">/</span>
-          <span class="text-sm md:text-base text-gray-900">私たちについて</span>
-        </p>
-      </NuxtLink>
-      <NuxtLink
-        to="/company"
-        class="relative bg-gray-200 flex items-center justify-center overflow-hidden"
-      >
-        <!-- 背景画像レイヤー（opacity適用） -->
-        <div
-          class="absolute inset-0 opacity-30"
-          :style="{
-            backgroundImage: `url(${networkBg})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'left',
-            backgroundRepeat: 'no-repeat',
-          }"
-        ></div>
-        <!-- コンテンツレイヤー -->
-        <p
-          class="relative flex flex-col md:flex-row items-center justify-center z-10 text-xl md:text-2xl space-x-2 drop-shadow-lg"
-        >
-          <span class="font-orbitron">CONTACT</span>
-          <span class="text-lg md:text-xl hidden md:block">/</span>
-          <span class="text-sm md:text-base text-gray-900">お問いわせ</span>
-        </p>
-      </NuxtLink>
+    <div class="w-full mt-4">
+      <GridLinks :links="gridLinks" />
     </div>
   </article>
 </template>
@@ -118,6 +71,21 @@ const gridRows = [
   {
     label: "アクセス",
     value: ["東京メトロ銀座線 新橋駅 徒歩1分", "JR新橋駅 徒歩3分"],
+  },
+];
+
+const gridLinks = [
+  {
+    to: "/about",
+    image: aboutUsBg,
+    title: "ABOUT US",
+    description: "私たちについて",
+  },
+  {
+    to: "/contact",
+    image: networkBg,
+    title: "CONTACT",
+    description: "お問いわせ",
   },
 ];
 </script>
