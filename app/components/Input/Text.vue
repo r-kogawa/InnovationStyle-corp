@@ -1,7 +1,7 @@
 <template>
   <label>
     <p class="text-gray-700 font-medium text-sm">
-      <span>
+      <span class="font-orbitron">
         {{ title }}
       </span>
       <span
@@ -18,7 +18,7 @@
       :placeholder="placeholder"
       :type="type || 'text'"
       :disabled="disabled"
-      class="w-full border border-gray-300 rounded px-2 py-1 mt-2 focus:outline-slate-400"
+      class="w-full border-b border-gray-300 px-2 py-1 mt-2 focus:outline-slate-400"
       :class="[
         disabled ? 'bg-gray-200' : '',
         error != '' && error != null ? 'bg-red-200' : '',

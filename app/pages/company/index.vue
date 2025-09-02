@@ -22,29 +22,33 @@
     <div
       class="max-w-screen-md mx-auto pt-10 pb-4 text-sm md:text-lg px-4 md:px-0"
     >
-      <CompanyGridRow
-        v-for="row in gridRows"
-        :key="row.label"
-        :label="row.label"
-        :value="row.value"
-      />
+      <AnimationMatrix>
+        <CompanyGridRow
+          v-for="row in gridRows"
+          :key="row.label"
+          :label="row.label"
+          :value="row.value"
+        />
 
-      <div class="py-10">
-        <iframe
-          :src="`https://www.google.com/maps/embed/v1/place?key=${GMAP_API_KEY}&zoom=15&q=${location}`"
-          allowfullscreen
-          class="w-full h-[300px] md:h-[500px]"
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-          style="border: 0"
-          title="googleマップ"
-          importance="low"
-        >
-        </iframe>
-      </div>
+        <div class="py-10">
+          <iframe
+            :src="`https://www.google.com/maps/embed/v1/place?key=${GMAP_API_KEY}&zoom=15&q=${location}`"
+            allowfullscreen
+            class="w-full h-[300px] md:h-[500px]"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            style="border: 0"
+            title="googleマップ"
+            importance="low"
+          >
+          </iframe>
+        </div>
+      </AnimationMatrix>
     </div>
     <div class="w-full mt-4">
-      <GridLinks :links="gridLinks" />
+      <AnimationMatrix>
+        <GridLinks :links="gridLinks" />
+      </AnimationMatrix>
     </div>
   </article>
 </template>

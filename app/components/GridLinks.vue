@@ -6,8 +6,12 @@
       v-for="(link, index) in props.links"
       :key="link.title"
       :to="link.to"
-      class="relative flex items-center justify-center overflow-hidden"
-      :class="index === 0 ? 'bg-gray-50' : 'bg-gray-200'"
+      class="relative flex items-center justify-center overflow-hidden transition-all duration-200"
+      :class="
+        index === 0
+          ? 'bg-gray-50 hover:bg-gray-100'
+          : 'bg-gray-200 hover:bg-gray-300'
+      "
     >
       <!-- 背景画像レイヤー（opacity適用） -->
       <div

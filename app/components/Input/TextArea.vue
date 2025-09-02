@@ -1,7 +1,7 @@
 <template>
   <label class="flex flex-col gap-2">
     <p class="text-gray-700 font-medium text-sm">
-      <span>
+      <span class="font-orbitron">
         {{ title }}
       </span>
       <span
@@ -13,7 +13,7 @@
     </p>
     <textarea
       v-model="model"
-      class="border border-gray-300 rounded-md w-full px-2 py-1 focus:outline-slate-400"
+      class="border border-gray-300 w-full px-2 py-1 focus:outline-slate-400"
       :class="[
         disabled ? 'bg-gray-200' : '',
         error != null ? 'bg-red-200' : '',

@@ -1,85 +1,39 @@
 <template>
-  <article class="">
+  <article>
     <section>
       <TopFirstView />
     </section>
     <!-- お知らせセクション -->
     <section class="bg-white py-16 md:py-24">
-      <div class="max-w-screen-lg mx-auto px-4 md:px-8">
-        <!-- ヘッダー -->
-        <div class="text-center mb-12 md:mb-16">
-          <div class="mb-4">
-            <div class="h-full">
-              <div class="flex gap-1 items-end justify-center h-full">
-                <h2 class="text-3xl font-orbitron text-slate-500">NEWS</h2>
-                <span class="text-lg text-gray-500">/</span>
-                <p class="text-gray-500">お知らせ</p>
+      <AnimationMatrix>
+        <div class="max-w-screen-lg mx-auto px-4 md:px-8">
+          <!-- ヘッダー -->
+          <div class="text-center mb-12 md:mb-16">
+            <div class="mb-4">
+              <div class="h-full">
+                <div class="flex gap-1 items-end justify-center h-full">
+                  <h2 class="text-3xl font-orbitron text-slate-500">NEWS</h2>
+                  <span class="text-lg text-gray-500">/</span>
+                  <p class="text-gray-500">お知らせ</p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <!-- お知らせアイテム -->
-        <div class="space-y-4">
-          <NewsItem
-            v-for="news in newsItems"
-            :key="news.id"
-            :date="news.date"
-            :category="news.category"
-            :title="news.title"
-            :summary="news.summary"
-          />
-        </div>
-        <!-- もっと見るボタン -->
-        <div class="text-center mt-12">
-          <button
-            @click="navigateTo('/news')"
-            class="inline-flex items-center font-orbitron px-6 py-3 transition-all duration-300 cursor-pointer"
-          >
-            and more
-            <svg
-              class="w-4 h-4 ml-2"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M9 5l7 7-7 7"
-              />
-            </svg>
-          </button>
-        </div>
-      </div>
-    </section>
-    <!-- FAQセクション -->
-    <section class="bg-gradient-to-b from-gray-50 to-white py-16 md:py-24">
-      <div class="max-w-screen-lg mx-auto px-4 md:px-8">
-        <!-- ヘッダー -->
-        <div class="text-center mb-12 md:mb-16">
-          <div class="inline-block mb-4">
-            <div class="h-full">
-              <div class="flex gap-1 items-end justify-center h-full">
-                <h2 class="text-3xl font-orbitron text-slate-500">FAQ</h2>
-                <span class="text-lg text-gray-500">/</span>
-                <p class="text-gray-500">よくあるご質問</p>
-              </div>
-            </div>
+          <!-- お知らせアイテム -->
+          <div class="space-y-4">
+            <NewsItem
+              v-for="news in newsItems"
+              :key="news.id"
+              :date="news.date"
+              :category="news.category"
+              :title="news.title"
+              :summary="news.summary"
+            />
           </div>
-        </div>
-        <!-- FAQアイテム -->
-        <div class="space-y-4">
-          <FaqAccordion
-            v-for="value in faqs"
-            :key="value.title"
-            :title="value.title"
-            :content="value.content"
-          />
           <!-- もっと見るボタン -->
           <div class="text-center mt-12">
             <button
-              @click="navigateTo('/faq')"
+              @click="navigateTo('/news')"
               class="inline-flex items-center font-orbitron px-6 py-3 transition-all duration-300 cursor-pointer"
             >
               and more
@@ -99,38 +53,57 @@
             </button>
           </div>
         </div>
-
-        <!-- CTA -->
-        <!-- <div class="text-center mt-12 md:mt-16">
-          <div
-            class="bg-gradient-to-br from-slate-50 to-zinc-100 rounded border border-gray-200 p-8 md:p-12"
-          >
-            <h3 class="text-lg md:text-xl text-gray-600 mb-4">
-              ご質問やご相談がございましたら、 お気軽にお問い合わせください。
-            </h3>
-
-            <NuxtLink
-              to="/contact"
-              class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-slate-600 to-slate-500 text-white font-semibold rounded-lg hover:from-slate-800 hover:to-slate-600 transition-all duration-300 shadow-lg hover:shadow-xl"
-            >
-              お問い合わせ・ご相談
-              <svg
-                class="w-4 h-4 ml-2"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M9 5l7 7-7 7"
-                />
-              </svg>
-            </NuxtLink>
+      </AnimationMatrix>
+    </section>
+    <!-- FAQセクション -->
+    <section class="bg-gradient-to-b from-gray-50 to-white py-16 md:py-24">
+      <AnimationMatrix>
+        <div class="max-w-screen-lg mx-auto px-4 md:px-8">
+          <!-- ヘッダー -->
+          <div class="text-center mb-12 md:mb-16">
+            <div class="inline-block mb-4">
+              <div class="h-full">
+                <div class="flex gap-1 items-end justify-center h-full">
+                  <h2 class="text-3xl font-orbitron text-slate-500">FAQ</h2>
+                  <span class="text-lg text-gray-500">/</span>
+                  <p class="text-gray-500">よくあるご質問</p>
+                </div>
+              </div>
+            </div>
           </div>
-        </div> -->
-      </div>
+          <!-- FAQアイテム -->
+          <div class="space-y-4">
+            <FaqAccordion
+              v-for="value in faqs"
+              :key="value.title"
+              :title="value.title"
+              :content="value.content"
+            />
+            <!-- もっと見るボタン -->
+            <div class="text-center mt-12">
+              <button
+                @click="navigateTo('/faq')"
+                class="inline-flex items-center font-orbitron px-6 py-3 transition-all duration-300 cursor-pointer"
+              >
+                and more
+                <svg
+                  class="w-4 h-4 ml-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </AnimationMatrix>
     </section>
   </article>
 </template>

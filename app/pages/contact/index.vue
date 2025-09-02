@@ -28,43 +28,45 @@
       </span>
     </div>
     <div class="max-w-screen-sm mx-auto my-10 text-sm md:text-lg px-4">
-      <div class="flex flex-col gap-4">
-        <InputText
-          title="法人名"
-          name="company_name"
-          required
-          placeholder="法人名"
-          type="text"
-        />
-        <InputText
-          title="お名前"
-          name="name"
-          required
-          placeholder="お名前"
-          type="text"
-        />
-        <InputText
-          title="メールアドレス"
-          name="email"
-          required
-          placeholder="Email"
-          type="email"
-        />
-        <InputText
-          title="電話番号"
-          name="phone"
-          required
-          placeholder="電話番号"
-          type="text"
-        />
-        <InputTextArea
-          title="お問い合わせ内容"
-          name="message"
-          required
-          placeholder="お問い合わせ内容"
-          :rows="10"
-        />
-      </div>
+      <AnimationMatrix>
+        <div class="flex flex-col gap-4">
+          <InputText
+            title="COMPANY / 法人名"
+            name="company_name"
+            required
+            placeholder="法人名"
+            type="text"
+          />
+          <InputText
+            title="NAME / お名前"
+            name="name"
+            required
+            placeholder="お名前"
+            type="text"
+          />
+          <InputText
+            title="EMAIL / メールアドレス"
+            name="email"
+            required
+            placeholder="Email"
+            type="email"
+          />
+          <InputText
+            title="PHONE / 電話番号"
+            name="phone"
+            required
+            placeholder="電話番号"
+            type="text"
+          />
+          <InputTextArea
+            title="MESSAGE / お問い合わせ内容"
+            name="message"
+            required
+            placeholder="お問い合わせ内容"
+            :rows="10"
+          />
+        </div>
+      </AnimationMatrix>
     </div>
     <div class="max-w-screen-sm mx-auto py-10 flex justify-center">
       <button
@@ -74,11 +76,31 @@
         内容を送信する
       </button>
     </div>
+    <div class="w-full mt-4">
+      <AnimationMatrix>
+        <GridLinks :links="gridLinks" />
+      </AnimationMatrix>
+    </div>
   </article>
 </template>
 
 <script setup lang="ts">
 import networkBg from "~/assets/img/illust/network.png";
+
+const gridLinks = [
+  {
+    to: "/about",
+    image: networkBg,
+    title: "ABOUT US",
+    description: "私たちについて",
+  },
+  {
+    to: "/company",
+    image: networkBg,
+    title: "COMPANY",
+    description: "会社概要",
+  },
+];
 </script>
 
 <style scoped></style>
