@@ -206,7 +206,7 @@ onMounted(() => {
 .bg .bg-wrap .inn {
   color: #fff;
   font-weight: bold;
-  padding: 5px 15px;
+  padding: 15px 15px;
   position: relative;
   z-index: 1;
 }
