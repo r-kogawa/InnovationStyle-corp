@@ -70,12 +70,12 @@
     >
       <div
         v-if="isMenuOpen"
-        class="absolute top-18 left-0 w-full h-fit z-50 bg-gradient-to-br from-slate-50 to-zinc-200 border-b border-slate-300 shadow-lg"
+        class="absolute top-18 left-0 w-full h-fit z-50 bg-white border-b border-slate-300 shadow-lg backdrop-blur-sm"
       >
         <div class="grid grid-cols-1 gap-2 h-full">
           <NuxtLink
             @click="isMenuOpen = false"
-            class="flex items-center gap-1 text-left border-b border-slate-300 p-3 font-orbitron hover:bg-slate-100 transition-colors duration-200"
+            class="flex items-center gap-1 text-left border-b border-slate-300 p-3 font-orbitron hover:bg-gray-100 transition-colors duration-200"
             to="/about"
           >
             <h2 class="font-orbitron text-slate-700">ABOUT US</h2>
@@ -84,7 +84,7 @@
           </NuxtLink>
           <NuxtLink
             @click="isMenuOpen = false"
-            class="flex items-center gap-1 text-left border-b border-slate-300 p-3 font-orbitron hover:bg-slate-100 transition-colors duration-200"
+            class="flex items-center gap-1 text-left border-b border-slate-300 p-3 font-orbitron hover:bg-gray-100 transition-colors duration-200"
             to="/service"
           >
             <h2 class="font-orbitron text-slate-700">SERVICE</h2>
@@ -93,7 +93,7 @@
           </NuxtLink>
           <NuxtLink
             @click="isMenuOpen = false"
-            class="flex items-center gap-1 text-left border-b border-slate-300 p-3 font-orbitron hover:bg-slate-100 transition-colors duration-200"
+            class="flex items-center gap-1 text-left border-b border-slate-300 p-3 font-orbitron hover:bg-gray-100 transition-colors duration-200"
             to="/company"
           >
             <h2 class="font-orbitron text-slate-700">COMPANY</h2>
@@ -102,7 +102,7 @@
           </NuxtLink>
           <NuxtLink
             @click="isMenuOpen = false"
-            class="flex items-center gap-1 text-left border-b border-slate-300 p-3 font-orbitron hover:bg-slate-100 transition-colors duration-200"
+            class="flex items-center gap-1 text-left border-b border-slate-300 p-3 font-orbitron hover:bg-gray-100 transition-colors duration-200"
             to="/contact"
           >
             <h2 class="font-orbitron text-slate-700">CONTACT</h2>
