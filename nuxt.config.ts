@@ -2,6 +2,9 @@
 import tailwindcss from "@tailwindcss/vite";
 
 export default defineNuxtConfig({
+  nitro: {
+    preset: "netlify-static",
+  },
   compatibilityDate: "2024-04-03",
   css: ["~/assets/css/main.css"],
   vite: {
