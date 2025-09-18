@@ -13,9 +13,9 @@
             alt="logo"
             class="w-8 h-8 md:w-10 md:h-10"
           />
-          <span class="text-xl md:text-2xl font-bold font-orbitron"
-            >Innovation Style</span
-          >
+          <span class="text-xl md:text-2xl font-bold font-orbitron">
+            Innovation Style
+          </span>
         </NuxtLink>
         <div
           class="hidden md:flex gap-10 items-center text-lg text-slate-700 font-orbitron"
@@ -73,7 +73,7 @@
         class="absolute top-18 left-0 w-full h-fit z-50 bg-white/95 backdrop-blur-md border-b border-slate-300 shadow-xl"
         style="background-color: rgba(255, 255, 255, 0.98) !important"
       >
-        <div class="grid grid-cols-1 gap-2 h-full">
+        <div class="grid grid-cols-1 h-full">
           <NuxtLink
             @click="isMenuOpen = false"
             class="flex items-center gap-1 text-left border-b border-slate-300 p-3 font-orbitron bg-white/90 hover:bg-gray-100 transition-colors duration-200"
