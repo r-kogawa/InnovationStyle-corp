@@ -70,12 +70,14 @@
     >
       <div
         v-if="isMenuOpen"
-        class="absolute top-18 left-0 w-full h-fit z-50 bg-white border-b border-slate-300 shadow-lg backdrop-blur-sm"
+        class="absolute top-18 left-0 w-full h-fit z-50 bg-white/95 backdrop-blur-md border-b border-slate-300 shadow-xl"
+        style="background-color: rgba(255, 255, 255, 0.98) !important"
       >
         <div class="grid grid-cols-1 gap-2 h-full">
           <NuxtLink
             @click="isMenuOpen = false"
-            class="flex items-center gap-1 text-left border-b border-slate-300 p-3 font-orbitron hover:bg-gray-100 transition-colors duration-200"
+            class="flex items-center gap-1 text-left border-b border-slate-300 p-3 font-orbitron bg-white/90 hover:bg-gray-100 transition-colors duration-200"
+            style="background-color: rgba(255, 255, 255, 0.95) !important"
             to="/about"
           >
             <h2 class="font-orbitron text-slate-700">ABOUT US</h2>
@@ -84,7 +86,8 @@
           </NuxtLink>
           <NuxtLink
             @click="isMenuOpen = false"
-            class="flex items-center gap-1 text-left border-b border-slate-300 p-3 font-orbitron hover:bg-gray-100 transition-colors duration-200"
+            class="flex items-center gap-1 text-left border-b border-slate-300 p-3 font-orbitron bg-white/90 hover:bg-gray-100 transition-colors duration-200"
+            style="background-color: rgba(255, 255, 255, 0.95) !important"
             to="/service"
           >
             <h2 class="font-orbitron text-slate-700">SERVICE</h2>
@@ -93,7 +96,8 @@
           </NuxtLink>
           <NuxtLink
             @click="isMenuOpen = false"
-            class="flex items-center gap-1 text-left border-b border-slate-300 p-3 font-orbitron hover:bg-gray-100 transition-colors duration-200"
+            class="flex items-center gap-1 text-left border-b border-slate-300 p-3 font-orbitron bg-white/90 hover:bg-gray-100 transition-colors duration-200"
+            style="background-color: rgba(255, 255, 255, 0.95) !important"
             to="/company"
           >
             <h2 class="font-orbitron text-slate-700">COMPANY</h2>
@@ -102,7 +106,8 @@
           </NuxtLink>
           <NuxtLink
             @click="isMenuOpen = false"
-            class="flex items-center gap-1 text-left border-b border-slate-300 p-3 font-orbitron hover:bg-gray-100 transition-colors duration-200"
+            class="flex items-center gap-1 text-left border-b border-slate-300 p-3 font-orbitron bg-white/90 hover:bg-gray-100 transition-colors duration-200"
+            style="background-color: rgba(255, 255, 255, 0.95) !important"
             to="/contact"
           >
             <h2 class="font-orbitron text-slate-700">CONTACT</h2>
