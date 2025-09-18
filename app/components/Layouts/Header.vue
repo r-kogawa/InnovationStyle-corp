@@ -1,6 +1,6 @@
 <template>
   <header
-    class="relative bg-gradient-to-br from-slate-50 to-zinc-200 border-b border-slate-300 shadow-sm"
+    class="relative bg-gradient-to-br from-slate-50 to-zinc-200 border-b border-slate-900 shadow-sm"
   >
     <div class="container mx-auto py-4 md:py-6 px-4 md:px-0">
       <div class="flex justify-between items-center">
@@ -13,7 +13,9 @@
             alt="logo"
             class="w-8 h-8 md:w-10 md:h-10"
           />
-          <span class="text-xl md:text-2xl font-bold">Innovation Style</span>
+          <span class="text-xl md:text-2xl font-bold font-orbitron"
+            >Innovation Style</span
+          >
         </NuxtLink>
         <div
           class="hidden md:flex gap-10 items-center text-lg text-slate-700 font-orbitron"
