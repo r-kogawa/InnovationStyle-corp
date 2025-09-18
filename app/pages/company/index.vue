@@ -1,51 +1,50 @@
 <template>
-  <article class="relative bg-gradient-to-br from-white to-stone-50">
-    <div class="relative w-full h-40 md:h-60 bg-white overflow-hidden">
-      <!-- 背景画像レイヤー（opacity適用） -->
-      <div
-        class="absolute inset-0 opacity-60"
-        :style="{
-          backgroundImage: `url(${earthBg})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'left',
-          backgroundRepeat: 'no-repeat',
-        }"
-      ></div>
-      <!-- コンテンツレイヤー -->
-      <div class="z-10 h-full">
-        <div class="flex flex-col gap-2 items-center justify-center h-full">
-          <h1 class="text-3xl font-orbitron drop-shadow-lg">Company</h1>
-          <p class="text-xl text-gray-900 drop-shadow-md">会社概要</p>
+  <article class="relative">
+    <BackGroundAnimation>
+      <div class="relative w-full h-32 overflow-hidden">
+        <!-- コンテンツレイヤー -->
+        <div class="z-10 max-w-screen-xl mx-auto h-full flex items-center px-4">
+          <div
+            class="flex flex-col gap-2 justify-center h-fit border-l-8 border-slate-500 pl-4"
+          >
+            <h1 class="text-3xl font-orbitron drop-shadow-lg">Company</h1>
+            <p class="text-xl text-gray-900 drop-shadow-md">会社概要</p>
+          </div>
         </div>
       </div>
-    </div>
-    <div
-      class="max-w-screen-md mx-auto pt-10 pb-4 text-sm md:text-lg px-4 md:px-0"
-    >
-      <AnimationMatrix>
-        <CompanyGridRow
-          v-for="row in gridRows"
-          :key="row.label"
-          :label="row.label"
-          :value="row.value"
-        />
 
-        <div class="py-10">
-          <iframe
-            :src="`https://www.google.com/maps/embed/v1/place?key=${GMAP_API_KEY}&zoom=15&q=${location}`"
-            allowfullscreen
-            class="w-full h-[300px] md:h-[500px]"
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            style="border: 0"
-            title="googleマップ"
-            importance="low"
+      <AnimationMatrix>
+        <section class="max-w-screen-xl mx-auto mb-20">
+          <div
+            class="text-sm md:text-lg p-4 grid items-start grid-cols-1 md:grid-cols-2 md:gap-10 gap-4 h-full"
           >
-          </iframe>
-        </div>
+            <div>
+              <CompanyGridRow
+                v-for="row in gridRows"
+                :key="row.label"
+                :label="row.label"
+                :value="row.value"
+              />
+            </div>
+
+            <div class="pt-10">
+              <iframe
+                :src="`https://www.google.com/maps/embed/v1/place?key=${GMAP_API_KEY}&zoom=15&q=${location}`"
+                allowfullscreen
+                class="w-full h-[300px] md:h-[370px]"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                style="border: 0"
+                title="googleマップ"
+                importance="low"
+              >
+              </iframe>
+            </div>
+          </div>
+        </section>
       </AnimationMatrix>
-    </div>
-    <div class="w-full mt-4">
+    </BackGroundAnimation>
+    <div class="w-full bg-white">
       <AnimationMatrix>
         <GridLinks :links="gridLinks" />
       </AnimationMatrix>

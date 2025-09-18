@@ -120,8 +120,10 @@
     >
       <div class="container mx-auto py-4 px-4 md:px-0">
         <div class="flex justify-center items-center">
-          <p class="text-primary-300 text-sm font-orbitron tracking-wider">
-            <span class="animate-pulse">©</span> 2023 Innovation Style., Ltd.
+          <p
+            class="text-primary-300 text-sm font-orbitron tracking-wider text-center"
+          >
+            © 2023 Innovation Style., Ltd. <br />
             All rights reserved.
           </p>
         </div>
@@ -129,4 +131,5 @@
     </div>
   </footer>
 </template>
+
 <script setup lang="ts"></script>
