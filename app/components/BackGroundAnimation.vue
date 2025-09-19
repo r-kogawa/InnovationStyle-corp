@@ -17,6 +17,7 @@
     rgb(255, 255, 255),
     rgb(210, 210, 210)
   );
+  height: 100%;
 }
 
 .ui.page.grid {
@@ -34,7 +35,7 @@
   position: absolute;
   z-index: -1;
   width: 135%;
-  height: 120%;
+  height: 100%;
   top: 0;
   left: 0;
   content: "";
