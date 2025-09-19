@@ -63,7 +63,7 @@
             </h3>
           </div>
           <div class="text-primary-100 text-sm pl-3 space-y-1">
-            <p>システム開発・AI導入支援</p>
+            <p>システム開発</p>
             <p>デジタルマーケティング</p>
           </div>
         </div>
