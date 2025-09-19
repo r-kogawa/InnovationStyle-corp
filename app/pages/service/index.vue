@@ -1,11 +1,9 @@
 <template>
   <article class="relative">
     <BackGroundAnimation>
-      <div class="relative w-full h-40 overflow-hidden">
+      <div class="relative w-full h-32 md:h-40 overflow-hidden">
         <!-- コンテンツレイヤー -->
-        <div
-          class="z-10 max-w-screen-2xl mx-auto h-full flex items-center px-4"
-        >
+        <div class="z-10 max-w-screen-xl mx-auto h-full flex items-center px-4">
           <div
             class="flex flex-col gap-2 justify-center h-fit border-l-8 border-slate-500 pl-4"
           >
@@ -16,7 +14,7 @@
       </div>
 
       <!-- メインコンテンツ -->
-      <div class="relative max-w-screen-2xl mx-auto px-4 md:px-8 pt-1 md:pt-14">
+      <div class="relative max-w-screen-xl mx-auto px-4 md:px-8 pt-1 md:pt-14">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 relative">
           <!-- システム開発タイトル -->
           <section
@@ -67,7 +65,7 @@
                 <div class="space-y-2">
                   <!-- Web・モバイルアプリ開発 -->
                   <div
-                    class="flex items-center space-x-3 p-3 rounded-md hover:bg-primary-500/10 transition-all duration-300 group"
+                    class="flex items-center space-x-3 rounded-md hover:bg-primary-500/10 transition-all duration-300 group"
                   >
                     <div
                       class="p-2 bg-secondary-700 rounded-full group-hover:bg-primary-600 transition-colors duration-300"
@@ -92,7 +90,7 @@
                   </div>
                   <!-- AI導入サービス -->
                   <div
-                    class="flex items-center space-x-3 p-3 rounded-md hover:bg-primary-500/10 transition-all duration-300 group"
+                    class="flex items-center space-x-3 rounded-md hover:bg-primary-500/10 transition-all duration-300 group"
                   >
                     <div
                       class="p-2 bg-secondary-700 rounded-full group-hover:bg-primary-600 transition-colors duration-300"
@@ -115,7 +113,7 @@
                   </div>
                   <!-- 外部サービスAPI連携 -->
                   <div
-                    class="flex items-center space-x-3 p-3 rounded-md hover:bg-primary-500/10 transition-all duration-300 group"
+                    class="flex items-center space-x-3 rounded-md hover:bg-primary-500/10 transition-all duration-300 group"
                   >
                     <div
                       class="p-2 bg-secondary-700 rounded-full group-hover:bg-primary-600 transition-colors duration-300"
@@ -140,7 +138,7 @@
                   </div>
                   <!-- クラウドサービス連携 -->
                   <div
-                    class="flex items-center space-x-3 p-3 rounded-md hover:bg-primary-500/10 transition-all duration-300 group"
+                    class="flex items-center space-x-3 rounded-md hover:bg-primary-500/10 transition-all duration-300 group"
                   >
                     <div
                       class="p-2 bg-secondary-700 rounded-full group-hover:bg-primary-600 transition-colors duration-300"
@@ -157,8 +155,9 @@
                     </div>
                     <span
                       class="text-primary-200 group-hover:text-primary-100 transition-colors duration-300"
-                      >クラウドサービスとの連携開発</span
                     >
+                      クラウドサービスとの連携開発
+                    </span>
                   </div>
                 </div>
               </div>
@@ -211,10 +210,10 @@
                   </span>
                   でお客様のビジネス成長をサポートします。
                 </p>
-                <div class="">
+                <div class="space-y-2">
                   <!-- リスティング広告 -->
                   <div
-                    class="flex items-center space-x-3 p-3 rounded-md hover:bg-primary-500/10 transition-all duration-300 group"
+                    class="flex items-center space-x-3 rounded-md hover:bg-primary-500/10 transition-all duration-300 group"
                   >
                     <div
                       class="p-2 bg-secondary-700 rounded-full group-hover:bg-primary-600 transition-colors duration-300"
@@ -239,7 +238,7 @@
                   </div>
                   <!-- SNS広告 -->
                   <div
-                    class="flex items-center space-x-3 p-3 rounded-md hover:bg-primary-500/10 transition-all duration-300 group"
+                    class="flex items-center space-x-3 rounded-md hover:bg-primary-500/10 transition-all duration-300 group"
                   >
                     <div
                       class="p-2 bg-secondary-700 rounded-full group-hover:bg-primary-600 transition-colors duration-300"
@@ -261,7 +260,7 @@
                   </div>
                   <!-- SEO対策 -->
                   <div
-                    class="flex items-center space-x-3 p-3 rounded-md hover:bg-primary-500/10 transition-all duration-300 group"
+                    class="flex items-center space-x-3 rounded-md hover:bg-primary-500/10 transition-all duration-300 group"
                   >
                     <div
                       class="p-2 bg-secondary-700 rounded-full group-hover:bg-primary-600 transition-colors duration-300"
@@ -286,7 +285,7 @@
                   </div>
                   <!-- コンテンツマーケティング -->
                   <div
-                    class="flex items-center space-x-3 p-3 rounded-md hover:bg-primary-500/10 transition-all duration-300 group"
+                    class="flex items-center space-x-3 rounded-md hover:bg-primary-500/10 transition-all duration-300 group"
                   >
                     <div
                       class="p-2 bg-secondary-700 rounded-full group-hover:bg-primary-600 transition-colors duration-300"
@@ -417,7 +416,7 @@
                 <div class="space-y-4">
                   <!-- 要件定義・企画 -->
                   <div
-                    class="flex items-center space-x-3 px-3 rounded-md hover:bg-primary-500/10 transition-all duration-300 group"
+                    class="flex items-center space-x-3 rounded-md hover:bg-primary-500/10 transition-all duration-300 group"
                   >
                     <div
                       class="w-6 h-6 bg-slate-700 text-white rounded-full flex items-center justify-center text-xs font-bold group-hover:bg-primary-500 transition-colors duration-300"
@@ -432,7 +431,7 @@
                   </div>
                   <!-- デザイン・設計 -->
                   <div
-                    class="flex items-center space-x-3 px-3 rounded-md hover:bg-primary-500/10 transition-all duration-300 group"
+                    class="flex items-center space-x-3 rounded-md hover:bg-primary-500/10 transition-all duration-300 group"
                   >
                     <div
                       class="w-6 h-6 bg-slate-700 text-white rounded-full flex items-center justify-center text-xs font-bold group-hover:bg-primary-500 transition-colors duration-300"
@@ -447,7 +446,7 @@
                   </div>
                   <!-- 開発・実装 -->
                   <div
-                    class="flex items-center space-x-3 px-3 rounded-md hover:bg-primary-500/10 transition-all duration-300 group"
+                    class="flex items-center space-x-3 rounded-md hover:bg-primary-500/10 transition-all duration-300 group"
                   >
                     <div
                       class="w-6 h-6 bg-slate-700 text-white rounded-full flex items-center justify-center text-xs font-bold group-hover:bg-primary-500 transition-colors duration-300"
@@ -462,7 +461,7 @@
                   </div>
                   <!-- テスト・品質保証 -->
                   <div
-                    class="flex items-center space-x-3 px-3 rounded-md hover:bg-primary-500/10 transition-all duration-300 group"
+                    class="flex items-center space-x-3 rounded-md hover:bg-primary-500/10 transition-all duration-300 group"
                   >
                     <div
                       class="w-6 h-6 bg-slate-700 text-white rounded-full flex items-center justify-center text-xs font-bold group-hover:bg-primary-500 transition-colors duration-300"
@@ -477,7 +476,7 @@
                   </div>
                   <!-- 納品・サポート -->
                   <div
-                    class="flex items-center space-x-3 px-3 rounded-md hover:bg-primary-500/10 transition-all duration-300 group"
+                    class="flex items-center space-x-3 rounded-md hover:bg-primary-500/10 transition-all duration-300 group"
                   >
                     <div
                       class="w-6 h-6 bg-slate-700 text-white rounded-full flex items-center justify-center text-xs font-bold group-hover:bg-primary-500 transition-colors duration-300"

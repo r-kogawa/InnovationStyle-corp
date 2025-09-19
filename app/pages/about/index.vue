@@ -1,11 +1,9 @@
 <template>
   <article class="bg-gradient-to-br from-white to-stone-50">
     <BackGroundAnimation>
-      <div class="relative w-full h-40 overflow-hidden">
+      <div class="relative w-full h-32 md:h-40 overflow-hidden">
         <!-- コンテンツレイヤー -->
-        <div
-          class="z-10 max-w-screen-2xl mx-auto h-full flex items-center px-4"
-        >
+        <div class="z-10 max-w-screen-xl mx-auto h-full flex items-center px-4">
           <div
             class="flex flex-col gap-2 justify-center h-fit border-l-8 border-slate-500 pl-4"
           >
@@ -15,7 +13,7 @@
         </div>
       </div>
       <!-- メインコンテンツ -->
-      <div class="max-w-screen-2xl mx-auto px-4">
+      <div class="max-w-screen-xl mx-auto px-4">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
           <!-- 経営理念イメージ -->
           <section class="flex justify-center items-center">
