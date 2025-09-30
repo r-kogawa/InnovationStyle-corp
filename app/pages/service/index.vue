@@ -21,11 +21,11 @@
             class="flex justify-start items-center p-1 md:p-14"
             :style="{
               backgroundImage: `url(${systemBg})`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
+              backgroundSize: 'contain',
+              backgroundPosition: 'right',
               backgroundRepeat: 'no-repeat',
               height: '90%',
-              width: '90%',
+              width: '100%',
             }"
           >
             <div
@@ -200,7 +200,7 @@
               backgroundPosition: 'right',
               backgroundRepeat: 'no-repeat',
               height: '90%',
-              width: '90%',
+              width: '100%',
             }"
           >
             <div
