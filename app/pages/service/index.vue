@@ -170,7 +170,7 @@
                 >
                   <NuxtLink
                     to="/service/system"
-                    class="inline-flex items-center space-x-2 text-white bg-gradient-to-r from-gray-500 to-gray-700 text-gray-900 hover:from-primary-500 hover:to-secondary-500 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 animate-neon-glow"
+                    class="inline-flex items-center space-x-2 text-white bg-gradient-to-r from-gray-500 to-gray-700 text-gray-900 hover:from-primary-500 hover:to-secondary-500 text-white px-6 py-3 rounded font-semibold transition-all duration-300 transform hover:scale-105 animate-neon-glow"
                   >
                     <svg
                       class="w-5 h-5"
@@ -407,7 +407,7 @@
                 >
                   <NuxtLink
                     to="/service/marketing"
-                    class="inline-flex items-center space-x-2 text-white bg-gradient-to-r from-gray-500 to-gray-700 text-gray-900 hover:from-primary-500 hover:to-secondary-500 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 animate-neon-glow"
+                    class="inline-flex items-center space-x-2 text-white bg-gradient-to-r from-gray-500 to-gray-700 text-gray-900 hover:from-primary-500 hover:to-secondary-500 text-white px-6 py-3 rounded font-semibold transition-all duration-300 transform hover:scale-105 animate-neon-glow"
                   >
                     <svg
                       class="w-5 h-5"
