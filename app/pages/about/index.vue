@@ -2,7 +2,7 @@
   <article class="bg-gradient-to-br from-white to-stone-50">
     <BackGroundAnimation>
       <Breadcrumb :items="breadcrumbItems" />
-      <div class="relative w-full h-32 md:h-40 overflow-hidden">
+      <div class="relative w-full h-full overflow-hidden mb-10">
         <!-- コンテンツレイヤー -->
         <div class="z-10 max-w-screen-xl mx-auto h-full flex items-center px-4">
           <div

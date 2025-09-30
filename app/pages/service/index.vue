@@ -2,7 +2,7 @@
   <article class="relative">
     <BackGroundAnimation>
       <Breadcrumb :items="breadcrumbItems" />
-      <div class="relative w-full h-32 md:h-40 overflow-hidden">
+      <div class="relative w-full h-full overflow-hidden mb-10">
         <!-- コンテンツレイヤー -->
         <div class="z-10 max-w-screen-xl mx-auto h-full flex items-center px-4">
           <div
@@ -74,7 +74,7 @@
                       class="p-2 bg-secondary-700 rounded-full group-hover:bg-primary-600 transition-colors duration-300"
                     >
                       <svg
-                        class="w-7 h-7 text-primary-300 group-hover:text-white"
+                        class="w-7 h-7 text-primary-300"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                       >
@@ -99,7 +99,7 @@
                       class="p-2 bg-secondary-700 rounded-full group-hover:bg-primary-600 transition-colors duration-300"
                     >
                       <svg
-                        class="w-7 h-7 text-primary-300 group-hover:text-white"
+                        class="w-7 h-7 text-primary-300"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                       >
@@ -122,7 +122,7 @@
                       class="p-2 bg-secondary-700 rounded-full group-hover:bg-primary-600 transition-colors duration-300"
                     >
                       <svg
-                        class="w-7 h-7 text-primary-300 group-hover:text-white"
+                        class="w-7 h-7 text-primary-300"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                       >
@@ -147,7 +147,7 @@
                       class="p-2 bg-secondary-700 rounded-full group-hover:bg-primary-600 transition-colors duration-300"
                     >
                       <svg
-                        class="w-7 h-7 text-primary-300 group-hover:text-white"
+                        class="w-7 h-7 text-primary-300"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                       >
@@ -247,7 +247,7 @@
                       class="p-2 bg-secondary-700 rounded-full group-hover:bg-primary-600 transition-colors duration-300"
                     >
                       <svg
-                        class="w-7 h-7 text-primary-300 group-hover:text-white"
+                        class="w-7 h-7 text-primary-300"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                       >
@@ -272,7 +272,7 @@
                       class="p-2 bg-secondary-700 rounded-full group-hover:bg-primary-600 transition-colors duration-300"
                     >
                       <svg
-                        class="w-7 h-7 text-primary-300 group-hover:text-white"
+                        class="w-7 h-7 text-primary-300"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                       >
@@ -294,7 +294,7 @@
                       class="p-2 bg-secondary-700 rounded-full group-hover:bg-primary-600 transition-colors duration-300"
                     >
                       <svg
-                        class="w-7 h-7 text-primary-300 group-hover:text-white"
+                        class="w-7 h-7 text-primary-300"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                       >
@@ -319,7 +319,7 @@
                       class="p-2 bg-secondary-700 rounded-full group-hover:bg-primary-600 transition-colors duration-300"
                     >
                       <svg
-                        class="w-7 h-7 text-primary-300 group-hover:text-white"
+                        class="w-7 h-7 text-primary-300"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                       >
