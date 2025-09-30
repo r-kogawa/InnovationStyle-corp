@@ -1,6 +1,7 @@
 <template>
   <article class="relative bg-gradient-to-br from-white to-stone-50">
     <BackGroundAnimation>
+      <Breadcrumb :items="breadcrumbItems" />
       <div class="relative w-full h-32 md:h-40 overflow-hidden">
         <!-- コンテンツレイヤー -->
         <div class="z-10 max-w-screen-xl mx-auto h-full flex items-center px-4">
@@ -85,6 +86,8 @@
 import earthBg from "~/assets/img/background/earth.png";
 import aboutUsBg from "~/assets/img/illust/about_us.png";
 import networkBg from "~/assets/img/illust/network.png";
+
+const breadcrumbItems = [{ label: "お問い合わせ" }];
 
 const gridLinks = [
   {

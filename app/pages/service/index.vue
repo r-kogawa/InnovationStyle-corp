@@ -1,6 +1,7 @@
 <template>
   <article class="relative">
     <BackGroundAnimation>
+      <Breadcrumb :items="breadcrumbItems" />
       <div class="relative w-full h-32 md:h-40 overflow-hidden">
         <!-- コンテンツレイヤー -->
         <div class="z-10 max-w-screen-xl mx-auto h-full flex items-center px-4">
@@ -399,6 +400,29 @@
                     </div>
                   </div>
                 </div>
+
+                <!-- マーケティング実績への動線 -->
+                <div
+                  class="mt-8 pt-6 border-t border-primary-500/30 text-center"
+                >
+                  <NuxtLink
+                    to="/service/marketing"
+                    class="inline-flex items-center space-x-2 text-white bg-gradient-to-r from-gray-500 to-gray-700 text-gray-900 hover:from-primary-500 hover:to-secondary-500 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 animate-neon-glow"
+                  >
+                    <svg
+                      class="w-5 h-5"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.293l-3-3a1 1 0 00-1.414 1.414L10.586 9H7a1 1 0 100 2h3.586l-1.293 1.293a1 1 0 101.414 1.414l3-3a1 1 0 000-1.414z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                    <span>マーケティング実績を見る</span>
+                  </NuxtLink>
+                </div>
               </div>
             </AnimationMatrix>
           </section>
@@ -541,6 +565,8 @@ import facebookLogo from "~/assets/img/service/media/facebook.png";
 import instagramLogo from "~/assets/img/service/media/instagram.png";
 import xLogo from "~/assets/img/service/media/x.png";
 import tiktokLogo from "~/assets/img/service/media/tiktok.png";
+
+const breadcrumbItems = [{ label: "事業内容" }];
 
 const gridLinks = [
   {
