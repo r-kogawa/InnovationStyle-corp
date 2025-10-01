@@ -1,7 +1,5 @@
 <template>
-  <article
-    class="relative bg-gradient-to-br from-white to-stone-50 min-h-screen"
-  >
+  <article class="relative bg-gradient-to-br from-white to-stone-50 h-full">
     <BackGroundAnimation>
       <div class="w-full h-full">
         <AnimationMatrix>
@@ -67,6 +65,24 @@
 </template>
 
 <script setup lang="ts">
+import earthBg from "~/assets/img/background/earth.png";
+import aboutUsBg from "~/assets/img/illust/about_us.png";
+// import networkBg from "~/assets/img/illust/network.png";
+
+const gridLinks = [
+  {
+    to: "/about",
+    image: aboutUsBg,
+    title: "ABOUT US",
+    description: "私たちについて",
+  },
+  {
+    to: "/company",
+    image: earthBg,
+    title: "COMPANY",
+    description: "会社概要",
+  },
+];
 // ページメタ情報
 useHead({
   title: "お問い合わせ完了 - Innovation Style",
