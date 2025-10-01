@@ -145,7 +145,8 @@ const gridLinks = [
   },
 ];
 
-const handleSubmit = async () => {
+const handleSubmit = async (e: Event) => {
+  e.preventDefault();
   console.log(form.value);
   is_submit.value = true;
   is_error.value = false;
