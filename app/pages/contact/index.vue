@@ -28,7 +28,7 @@
         <AnimationMatrix>
           <form
             @submit="handleSubmit"
-            data-netlify="true"
+            netlify
             netlify-honeypot="bot-field"
           >
             <input
@@ -158,7 +158,10 @@ const handleSubmit = async () => {
   formData.append("phone", form.value.phone);
   formData.append("textarea", form.value.message);
 
-  await fetch(window.location.origin, {
+  await fetch("/", {
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
     method: "POST",
     body: formData,
   })
