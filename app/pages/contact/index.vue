@@ -27,7 +27,7 @@
       >
         <AnimationMatrix>
           <form
-            @submit="handleSubmit"
+            @submit.prevent="handleSubmit"
             netlify
             netlify-honeypot="bot-field"
           >
