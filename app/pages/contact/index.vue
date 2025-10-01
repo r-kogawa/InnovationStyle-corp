@@ -151,20 +151,21 @@ const handleSubmit = async (e: Event) => {
   is_submit.value = true;
   is_error.value = false;
 
-  const formData = new FormData();
+  // URLSearchParamsを使用してapplication/x-www-form-urlencodedでエンコード
+  const formData = new URLSearchParams();
   formData.append("form-name", "contact-form");
+  formData.append("company_name", form.value.company_name);
   formData.append("name", form.value.name);
-  formData.append("company", form.value.company_name);
   formData.append("email", form.value.email);
   formData.append("phone", form.value.phone);
-  formData.append("textarea", form.value.message);
+  formData.append("message", form.value.message);
 
   await fetch("/", {
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
     },
     method: "POST",
-    body: formData,
+    body: formData.toString(),
   })
     .then(() => {
       navigateTo(`/contact/thanks`, {
