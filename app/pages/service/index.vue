@@ -582,4 +582,15 @@ const gridLinks = [
     description: "お問いわせ",
   },
 ];
+
+useHead({
+  title: "事業内容 | Innovation Style - システム開発・デジタルマーケティング",
+  meta: [
+    {
+      name: "description",
+      content:
+        "Innovation Styleの事業内容をご紹介。Web・モバイルアプリ開発、AI導入支援、クラウド連携などのシステム開発から、リスティング広告、SNS広告運用、SEO対策、コンテンツマーケティングまで。要件定義から納品・保守まで一貫したサポートで、お客様のDX実現とビジネス成長を加速します。",
+    },
+  ],
+});
 </script>

@@ -185,6 +185,17 @@ const handleSubmit = async (e: Event) => {
       form.value.message = "";
     });
 };
+
+useHead({
+  title: "お問い合わせ | Innovation Style株式会社",
+  meta: [
+    {
+      name: "description",
+      content:
+        "お気軽にお問い合わせください。お問い合わせ内容を確認後、担当者よりご連絡させていただきます。",
+    },
+  ],
+});
 </script>
 
 <style scoped></style>

@@ -94,4 +94,15 @@ const gridLinks = [
     description: "お問いわせ",
   },
 ];
+
+useHead({
+  title: "会社概要 | Innovation Style株式会社",
+  meta: [
+    {
+      name: "description",
+      content:
+        "システム開発とデジタルマーケティング事業を展開。革新的な技術とマーケティングの融合で、企業のDX推進とビジネス成長をサポートします。",
+    },
+  ],
+});
 </script>

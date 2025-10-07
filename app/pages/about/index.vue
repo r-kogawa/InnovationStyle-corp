@@ -148,6 +148,17 @@ const gridLinks = [
     description: "お問いわせ",
   },
 ];
+
+useHead({
+  title: "私たちについて | Innovation Style - 経営理念・ミッション",
+  meta: [
+    {
+      name: "description",
+      content:
+        "Innovation Styleは革新的な発想と先進技術を融合させ、未来を切り拓くテクノロジー＆デザインのプラットフォームです。新規事業創出やDX実現において企画から実行まで一気通貫で支援。スピードある実行で日本発のグローバルイノベーションを牽引し、お客様と共に新たな価値を創出します。",
+    },
+  ],
+});
 </script>
 
 <style scoped></style>

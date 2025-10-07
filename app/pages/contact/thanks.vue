@@ -89,8 +89,7 @@ useHead({
   meta: [
     {
       name: "description",
-      content:
-        "お問い合わせありがとうございます。担当者より2営業日以内にご連絡させていただきます。",
+      content: "お問い合わせありがとうございます",
     },
     {
       name: "robots",
