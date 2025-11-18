@@ -48,8 +48,8 @@
             </h3>
           </div>
           <p class="text-primary-100 text-sm md:text-base pl-3">
-            東京都港区新橋1-9-5<br />
-            KDX 新橋駅前ビル9F
+            東京都港区海岸1-2-20<br />
+            汐留ビルディング 3F
           </p>
         </div>
 

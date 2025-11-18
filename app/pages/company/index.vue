@@ -56,7 +56,7 @@
 <script setup lang="ts">
 const config = useRuntimeConfig();
 const { GMAP_API_KEY } = config.public;
-const location = "東京都港区新橋1-9-5KDX新橋駅前ビル";
+const location = "東京都港区海岸1-2-20 汐留ビルディング";
 
 import earthBg from "~/assets/img/background/earth.png";
 import aboutUsBg from "~/assets/img/illust/about_us.png";
@@ -66,7 +66,7 @@ const gridRows = [
   { label: "社名", value: "Innovation Style株式会社" },
   {
     label: "所在地",
-    value: "〒105-0004\n東京都港区新橋1-9-5KDX新橋駅前ビル9F",
+    value: "〒105-0022\n東京都港区海岸1-2-20\n 汐留ビルディング 3F",
   },
   { label: "代表取締役", value: "冨野 公平" },
   { label: "資本金", value: "1,000,000円" },
@@ -74,7 +74,7 @@ const gridRows = [
   { label: "事業内容", value: ["システム開発", "デジタルマーケティング"] },
   {
     label: "アクセス",
-    value: ["東京メトロ銀座線 新橋駅 徒歩1分", "JR新橋駅 徒歩3分"],
+    value: ["都営大江戸線 大門駅 徒歩3分", "JR浜松町駅 徒歩3分"],
   },
 ];
 
