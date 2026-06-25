@@ -1,6 +1,76 @@
 @import "tailwindcss";
 
-/* Orbitronフォントの明示的な定義 */
-.font-orbitron {
-  font-family: "Orbitron", sans-serif;
+/* =====================================================================
+   Innovation Style — Design tokens (リデザイン)
+   Palette / typography は Claude Design の .dc.html 群から抽出。
+   ===================================================================== */
+@theme {
+  /* --- Brand palette --- */
+  --color-ink: #14152a; /* 主要テキスト / 濃いボタン */
+  --color-deep: #0b0c1c; /* ダークセクション / フッター */
+  --color-accent: #4744b8; /* アクセント（紫） */
+  --color-accent-bright: #6c6af0; /* ダーク背景上の紫 */
+  --color-steel: #5e6e92; /* スレートブルー補助色 */
+  --color-surface: #f4f4f6; /* ページ背景 */
+  --color-body: #6a6c7e; /* 本文テキスト */
+  --color-faint: #8a8c9a; /* 補助ラベル */
+  --color-faint-2: #9a9cab; /* さらに淡いラベル */
+  --color-line: #e2e2e8; /* ヘアライン罫 */
+  --color-line-soft: #ececf0; /* 淡いヘアライン罫 */
+  --color-line-strong: #dbdbe2; /* 濃いめのヘアライン罫 */
+
+  /* --- Typography --- */
+  --font-display: "Space Grotesk", sans-serif; /* 見出し / 数字 / 英字 */
+  --font-sans: "Noto Sans JP", sans-serif; /* 本文（日本語） */
+  --font-mono: "JetBrains Mono", monospace; /* ラベル / eyebrow */
+
+  /* --- Breakpoints --- */
+  --breakpoint-nav: 820px; /* ヘッダーのデスクトップ/モバイル切替点 */
+}
+
+/* =====================================================================
+   装飾モチーフ
+   ===================================================================== */
+/* ドットグリッド（明るい背景用） */
+.bg-dotgrid {
+  background-image: radial-gradient(
+    circle,
+    rgba(71, 68, 184, 0.1) 1px,
+    transparent 1.4px
+  );
+  background-size: 26px 26px;
+}
+/* ドットグリッド（ダーク背景用） */
+.bg-dotgrid-dark {
+  background-image: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.06) 1px,
+    transparent 1.4px
+  );
+  background-size: 26px 26px;
+}
+
+/* =====================================================================
+   スクロールリビール
+   .reveal は markup に置き、reveal.client.ts の v-reveal で監視する。
+   reveal-enabled は head のインラインスクリプトが付与（JS無効時は常に表示）。
+   ===================================================================== */
+.reveal-enabled .reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 0.7s cubic-bezier(0.16, 0.7, 0.3, 1),
+    transform 0.7s cubic-bezier(0.16, 0.7, 0.3, 1);
+  will-change: opacity, transform;
+}
+.reveal-enabled .reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal-enabled .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }

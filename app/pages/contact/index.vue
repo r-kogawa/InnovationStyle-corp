@@ -1,185 +1,222 @@
 <template>
-  <article class="relative bg-gradient-to-br from-white to-stone-50">
-    <BackGroundAnimation>
-      <Breadcrumb :items="breadcrumbItems" />
-      <div class="relative w-full h-full overflow-hidden mb-10">
-        <!-- コンテンツレイヤー -->
-        <div class="z-10 max-w-screen-xl mx-auto h-full flex items-center px-4">
-          <div
-            class="flex flex-col gap-2 justify-center h-fit border-l-8 border-slate-500 pl-4"
-          >
-            <h1 class="text-3xl font-orbitron drop-shadow-lg">CONTACT</h1>
-            <p class="text-xl text-gray-900 drop-shadow-md">お問い合わせ</p>
+  <div>
+    <PageHero
+      :crumbs="[{ label: 'お問い合わせ' }]"
+      eng="CONTACT"
+      subtitle="お問い合わせ"
+    />
+
+    <section class="bg-white">
+      <div
+        class="mx-auto grid max-w-[1180px] grid-cols-1 items-start gap-16 px-8 py-20 max-nav:px-5 max-nav:py-16 nav:grid-cols-[0.85fr_1.15fr]"
+      >
+        <!-- left info -->
+        <div>
+          <p class="m-0 text-[15px] leading-[2] text-body">
+            システム開発・マーケティングに関するご相談、お見積もり、その他お問い合わせはこちらのフォームよりお気軽にご連絡ください。<br />通常2営業日以内にご返信いたします。
+          </p>
+          <div class="mt-9 border-t border-line-soft">
+            <div class="border-b border-line-soft py-[22px]">
+              <div class="font-mono text-[10px] tracking-[0.16em] text-faint-2">
+                LOCATION
+              </div>
+              <div class="mt-2 text-[14px] leading-[1.8]">
+                〒105-0022 東京都港区海岸1-2-20<br />汐留ビルディング 3F
+              </div>
+            </div>
+            <div class="border-b border-line-soft py-[22px]">
+              <div class="font-mono text-[10px] tracking-[0.16em] text-faint-2">
+                ACCESS
+              </div>
+              <div class="mt-2 text-[14px] leading-[1.9]">
+                都営大江戸線 大門駅 徒歩3分<br />JR浜松町駅 徒歩3分
+              </div>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="max-w-screen-sm px-4 md:px-0 mx-auto mb-10">
-        <span class="text-sm md:text-lg text-slate-700 block text-center">
-          下記のフォームからお問い合わせください。
-        </span>
-        <span class="text-sm md:text-lg text-slate-700 block text-center">
-          お問い合わせ内容を確認後、担当者よりご連絡させて頂きます。
-        </span>
-      </div>
-      <div
-        class="w-full md:w-[700px] mx-auto bg-white p-6 md:p-10 rounded shadow-lg border border-slate-200 mb-20"
-      >
-        <AnimationMatrix>
+        <!-- right form (Netlify Forms) -->
+        <div>
           <form
-            @submit="handleSubmit"
+            name="contact-form"
+            method="POST"
             netlify
             netlify-honeypot="bot-field"
+            @submit="handleSubmit"
           >
             <input
               type="hidden"
               name="form-name"
               value="contact-form"
             />
-            <input
-              type="hidden"
-              style="height: 1px"
-              v-model="bot_field"
-            />
-            <div class="flex flex-col gap-4">
-              <InputText
-                title="COMPANY / 法人名"
-                name="company_name"
-                required
-                placeholder="法人名"
-                type="text"
-                v-model="form.company_name"
-              />
-              <InputText
-                title="NAME / お名前"
-                name="name"
-                required
-                placeholder="お名前"
-                type="text"
-                v-model="form.name"
-              />
-              <InputText
-                title="EMAIL / メールアドレス"
-                name="email"
-                required
-                placeholder="Email"
-                type="email"
-                v-model="form.email"
-              />
-              <InputText
-                title="PHONE / 電話番号"
-                name="phone"
-                required
-                placeholder="電話番号"
-                type="text"
-                v-model="form.phone"
-              />
-              <InputTextArea
-                title="MESSAGE / お問い合わせ内容"
-                name="message"
-                required
-                placeholder="お問い合わせ内容"
-                :rows="10"
-                v-model="form.message"
-              />
+            <p class="hidden">
+              <label
+                >Don't fill this out:
+                <input
+                  v-model="bot_field"
+                  name="bot-field"
+              /></label>
+            </p>
+
+            <div class="grid grid-cols-1 gap-5 min-[521px]:grid-cols-2">
+              <div>
+                <label :class="labelClass">会社名</label>
+                <input
+                  v-model="form.company_name"
+                  name="company_name"
+                  type="text"
+                  placeholder="株式会社サンプル"
+                  :class="inputClass"
+                />
+              </div>
+              <div>
+                <label :class="labelClass"
+                  >お名前 <span class="text-accent">*</span></label
+                >
+                <input
+                  v-model="form.name"
+                  name="name"
+                  type="text"
+                  required
+                  placeholder="山田 太郎"
+                  :class="inputClass"
+                />
+              </div>
+              <div>
+                <label :class="labelClass"
+                  >メールアドレス <span class="text-accent">*</span></label
+                >
+                <input
+                  v-model="form.email"
+                  name="email"
+                  type="email"
+                  required
+                  placeholder="info@example.com"
+                  :class="inputClass"
+                />
+              </div>
+              <div>
+                <label :class="labelClass">電話番号</label>
+                <input
+                  v-model="form.phone"
+                  name="phone"
+                  type="tel"
+                  placeholder="03-0000-0000"
+                  :class="inputClass"
+                />
+              </div>
             </div>
-            <div class="max-w-screen-sm mx-auto pt-10 flex justify-center">
-              <button
-                :disabled="is_submit"
-                type="submit"
-                class="w-fit bg-slate-700 text-white py-2 px-20 rounded-full cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+
+            <div class="mt-5">
+              <label :class="labelClass">お問い合わせ種別</label>
+              <select
+                v-model="form.inquiry_type"
+                name="inquiry_type"
+                :class="inputClass"
               >
-                {{ is_submit ? "送信中..." : "内容を送信する" }}
-              </button>
+                <option>システム開発について</option>
+                <option>マーケティングについて</option>
+                <option>お見積もり・ご相談</option>
+                <option>その他</option>
+              </select>
             </div>
-            <div
-              v-if="is_error"
-              class="max-w-screen-sm mx-auto pt-10 flex justify-center"
+
+            <div class="mt-5">
+              <label :class="labelClass"
+                >お問い合わせ内容 <span class="text-accent">*</span></label
+              >
+              <textarea
+                v-model="form.message"
+                name="message"
+                rows="6"
+                required
+                placeholder="お問い合わせ内容をご記入ください"
+                :class="[inputClass, 'resize-y']"
+              ></textarea>
+            </div>
+
+            <label
+              class="mt-5 flex items-start gap-2.5 text-[12px] leading-[1.6] text-body"
             >
-              <p class="text-red-500 text-sm">
-                お問い合わせ内容の送信に失敗しました。<br />時間をおいて再度お試しください。
-              </p>
-            </div>
+              <input
+                v-model="agreed"
+                type="checkbox"
+                class="mt-0.5 accent-accent"
+              />
+              <span>個人情報の取り扱いについて同意します</span>
+            </label>
+
+            <button
+              type="submit"
+              :disabled="is_submit || !agreed"
+              class="mt-[26px] w-full rounded-[3px] bg-ink py-[17px] text-[15px] font-medium text-white transition-colors duration-200 hover:bg-accent disabled:cursor-not-allowed disabled:opacity-50"
+            >
+              {{ is_submit ? "送信中..." : "送信する　→" }}
+            </button>
+
+            <p
+              v-if="is_error"
+              class="mt-5 text-center text-[13px] text-red-500"
+            >
+              お問い合わせ内容の送信に失敗しました。<br />時間をおいて再度お試しください。
+            </p>
           </form>
-        </AnimationMatrix>
+        </div>
       </div>
-    </BackGroundAnimation>
-    <div class="w-full">
-      <AnimationMatrix>
-        <GridLinks :links="gridLinks" />
-      </AnimationMatrix>
-    </div>
-  </article>
+    </section>
+  </div>
 </template>
 
 <script setup lang="ts">
-import earthBg from "~/assets/img/background/earth.png";
-import aboutUsBg from "~/assets/img/illust/about_us.png";
-// import networkBg from "~/assets/img/illust/network.png";
+const labelClass = "mb-2 block text-[12px] font-medium";
+const inputClass =
+  "w-full rounded-[3px] border border-line-strong bg-white px-3.5 py-3 font-sans text-[14px] text-ink transition-colors focus:border-accent focus:outline-none";
 
 const bot_field = ref("");
 const is_error = ref<boolean>(false);
 const is_submit = ref<boolean>(false);
-const breadcrumbItems = [{ label: "お問い合わせ" }];
+const agreed = ref<boolean>(false);
 
 const form = ref({
   company_name: "",
   name: "",
   email: "",
   phone: "",
+  inquiry_type: "システム開発について",
   message: "",
 });
 
-const gridLinks = [
-  {
-    to: "/about",
-    image: aboutUsBg,
-    title: "ABOUT US",
-    description: "私たちについて",
-  },
-  {
-    to: "/company",
-    image: earthBg,
-    title: "COMPANY",
-    description: "会社概要",
-  },
-];
-
 const handleSubmit = async (e: Event) => {
   e.preventDefault();
-  console.log(form.value);
   is_submit.value = true;
   is_error.value = false;
 
-  // URLSearchParamsを使用してapplication/x-www-form-urlencodedでエンコード
+  // application/x-www-form-urlencoded で Netlify Forms へ送信
   const formData = new URLSearchParams();
   formData.append("form-name", "contact-form");
   formData.append("company_name", form.value.company_name);
   formData.append("name", form.value.name);
   formData.append("email", form.value.email);
   formData.append("phone", form.value.phone);
+  formData.append("inquiry_type", form.value.inquiry_type);
   formData.append("message", form.value.message);
 
   await fetch("/", {
-    headers: {
-      "Content-Type": "application/x-www-form-urlencoded",
-    },
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
     method: "POST",
     body: formData.toString(),
   })
     .then(() => {
-      navigateTo(`/contact/thanks`, {
-        replace: true,
-      });
+      navigateTo("/contact/thanks", { replace: true });
     })
-    .catch((error: any) => {
+    .catch((error: unknown) => {
       is_error.value = true;
-      console.log(error);
+      console.error(error);
     })
     .finally(() => {
       is_submit.value = false;
-      form.value.name = "";
       form.value.company_name = "";
+      form.value.name = "";
       form.value.email = "";
       form.value.phone = "";
       form.value.message = "";
@@ -197,5 +234,3 @@ useHead({
   ],
 });
 </script>
-
-<style scoped></style>

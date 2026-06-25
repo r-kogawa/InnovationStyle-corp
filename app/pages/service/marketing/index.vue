@@ -1,474 +1,202 @@
 <template>
-  <article class="relative">
-    <BackGroundAnimation>
-      <Breadcrumb :items="breadcrumbItems" />
-      <div class="relative w-full h-full overflow-hidden mb-10">
-        <!-- コンテンツレイヤー -->
-        <div class="z-10 max-w-screen-xl mx-auto h-full flex items-center px-4">
+  <div>
+    <PageHero
+      :crumbs="[
+        { label: '事業内容', to: '/service' },
+        { label: 'マーケティング実績' },
+      ]"
+      eng="MARKETING"
+      subtitle="マーケティング実績"
+    />
+
+    <!-- ===== INTRO ===== -->
+    <section class="bg-white">
+      <div class="mx-auto max-w-[1180px] px-8 pt-[72px] max-nav:px-5">
+        <div class="font-mono text-[11px] tracking-[0.22em] text-faint-2">
+          SUCCESS CASE
+        </div>
+        <div class="mt-3 max-w-[720px] text-[26px] font-bold leading-[1.5]">
+          データドリブンなマーケティング支援で<br />成果を創出した実績をご紹介します
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CASES ===== -->
+    <section class="bg-white">
+      <div
+        class="mx-auto flex max-w-[1180px] flex-col gap-[72px] px-8 pb-24 pt-14 max-nav:px-5 max-nav:py-16"
+      >
+        <div
+          v-for="(c, i) in cases"
+          :key="c.caseNo"
+          v-reveal
+          class="reveal grid grid-cols-1 items-start gap-13 max-nav:gap-6 nav:grid-cols-[0.82fr_1.18fr]"
+        >
+          <!-- visual -->
           <div
-            class="flex flex-col gap-2 justify-center h-fit border-l-8 border-slate-500 pl-4"
+            class="relative aspect-[4/5] overflow-hidden rounded-[6px] border border-line-strong"
+            :class="i % 2 === 1 ? 'nav:order-2' : ''"
+            style="
+              background:
+                radial-gradient(
+                    circle at 55% 35%,
+                    rgba(94, 110, 146, 0.16),
+                    transparent 60%
+                  ),
+                repeating-linear-gradient(
+                  135deg,
+                  #e9e9ee 0 11px,
+                  #e2e2e9 11px 22px
+                );
+            "
           >
-            <h1 class="text-3xl font-orbitron drop-shadow-lg">MARKETING</h1>
-            <p class="text-xl text-gray-900 drop-shadow-md">
-              マーケティング実績
+            <div
+              class="absolute left-[18px] top-4 font-mono text-[10px] tracking-[0.14em] text-faint"
+            >
+              {{ c.caseNo }}
+            </div>
+            <div
+              class="absolute bottom-[18px] left-[18px] rounded-[5px] border border-line bg-white px-[22px] py-4 shadow-[0_8px_24px_rgba(20,21,42,0.12)]"
+            >
+              <div
+                class="font-display text-[34px] font-semibold leading-none text-accent"
+              >
+                {{ c.stat }}
+              </div>
+              <div class="mt-1 text-[11px] text-body">
+                {{ c.statLabel }}
+              </div>
+            </div>
+          </div>
+          <!-- content -->
+          <div :class="i % 2 === 1 ? 'nav:order-1' : ''">
+            <h3 class="m-0 text-[23px] font-bold leading-[1.5]">
+              {{ c.title }}
+            </h3>
+            <p class="mt-3.5 text-[13px] leading-[1.95] text-body">
+              {{ c.desc }}
             </p>
+            <div
+              class="mb-3 mt-6 font-mono text-[10px] tracking-[0.16em] text-faint-2"
+            >
+              実施した施策
+            </div>
+            <div class="flex flex-col gap-2">
+              <div
+                v-for="m in c.measures"
+                :key="m"
+                class="flex gap-2.5 text-[13px] leading-[1.6] text-[#3a3c50]"
+              >
+                <span class="text-faint-2">—</span>{{ m }}
+              </div>
+            </div>
+            <div
+              class="mt-[22px] rounded-[6px] border border-line bg-surface px-6 py-[22px]"
+            >
+              <div
+                class="mb-3 font-mono text-[10px] tracking-[0.16em] text-accent"
+              >
+                成果
+              </div>
+              <div class="flex flex-col gap-2.5">
+                <div
+                  v-for="r in c.results"
+                  :key="r.strong"
+                  class="flex gap-2.5 text-[13px] leading-[1.5]"
+                >
+                  <span class="text-accent">✓</span>
+                  <span
+                    >{{ r.label
+                    }}<strong class="font-bold">{{ r.strong }}</strong></span
+                  >
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
+    </section>
 
-      <!-- メインコンテンツ -->
-      <div class="relative max-w-screen-xl mx-auto px-0 md:px-8 pt-10 md:pt-14">
-        <!-- 実績紹介セクション -->
-        <section class="mb-16">
-          <div class="text-center mb-12 px-4">
-            <h2 class="text-3xl md:text-4xl font-orbitron mb-4">
-              <AnimationFlow>SUCCESS CASE</AnimationFlow>
-            </h2>
-            <p class="text-lg md:text-xl text-primary-200">
-              データドリブンなマーケティング支援で成果を創出した実績をご紹介します
-            </p>
-          </div>
-
-          <!-- 事例グリッド -->
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <!-- 事例1: 不動産投資商品開発会社 -->
-            <AnimationMatrix>
-              <div
-                class="neon-border rounded-lg hologram p-6 transition-transform duration-300"
-              >
-                <div class="mb-6 space-y-6">
-                  <div class="flex items-center justify-between mb-3">
-                    <span
-                      class="inline-block text-white bg-gradient-to-r from-gray-500 to-gray-700 text-gray-900 px-4 py-2 rounded-full text-sm font-bold"
-                    >
-                      SUCCESS CASE 01
-                    </span>
-                    <div class="text-right">
-                      <div
-                        class="text-primary-300 text-2xl font-bold animate-neon-glow"
-                      >
-                        18ヶ月
-                      </div>
-                      <div class="text-primary-200 text-xs">連続目標達成</div>
-                    </div>
-                  </div>
-                  <div
-                    class="w-full h-52 bg-gradient-to-r from-gray-500 to-gray-700"
-                  >
-                    <img
-                      src="~/assets/img/white-logo.png"
-                      alt="不動産投資商品開発会社"
-                      class="w-full h-full object-contain"
-                    />
-                  </div>
-                  <h3
-                    class="text-xl font-bold text-primary-100 mb-3 leading-tight"
-                  >
-                    不動産投資商品開発会社
-                  </h3>
-                  <p class="text-primary-200 text-base mb-4 leading-relaxed">
-                    システム連携と広告運用の組み合わせで、新規投資家リードの獲得を劇的に効率化。データを活用した精緻な広告配信で、18ヶ月連続で目標を達成しました。
-                  </p>
-                </div>
-
-                <div class="space-y-4 mb-6">
-                  <div class="bg-primary-800/20 py-2">
-                    <h4
-                      class="text-primary-100 font-bold mb-3 flex items-center"
-                    >
-                      <svg
-                        class="w-5 h-5 mr-2 text-primary-300"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                      >
-                        <path
-                          fill-rule="evenodd"
-                          d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z"
-                          clip-rule="evenodd"
-                        />
-                      </svg>
-                      実施した施策
-                    </h4>
-                    <ul class="text-primary-200 space-y-2 text-sm">
-                      <li class="flex items-start">
-                        <span class="text-primary-300 mr-2">•</span>
-                        <span>自社開発システムで顧客データベースを構築</span>
-                      </li>
-                      <li class="flex items-start">
-                        <span class="text-primary-300 mr-2">•</span>
-                        <span
-                          >TikTok・Google・Facebook広告をAPI連携で一元管理</span
-                        >
-                      </li>
-                      <li class="flex items-start">
-                        <span class="text-primary-300 mr-2">•</span>
-                        <span>キャンペーンデータをCRMにリアルタイム送信</span>
-                      </li>
-                    </ul>
-                  </div>
-
-                  <div class="bg-primary-800/20 py-2">
-                    <h4
-                      class="text-primary-100 font-bold mb-3 flex items-center"
-                    >
-                      <svg
-                        class="w-5 h-5 mr-2 text-primary-300"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                      >
-                        <path
-                          fill-rule="evenodd"
-                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                          clip-rule="evenodd"
-                        />
-                      </svg>
-                      成果
-                    </h4>
-                    <ul class="text-primary-200 space-y-2 text-sm">
-                      <li class="flex items-start">
-                        <span class="text-primary-300 mr-2">✓</span>
-                        <span>
-                          リード送客目標を
-                          <strong class="text-primary-300 animate-neon-glow">
-                            18ヶ月連続達成
-                          </strong>
-                        </span>
-                      </li>
-                      <li class="flex items-start">
-                        <span class="text-primary-300 mr-2">✓</span>
-                        <span>
-                          CPA（顧客獲得単価）を
-                          <strong class="text-primary-300 animate-neon-glow">
-                            30%削減
-                          </strong>
-                        </span>
-                      </li>
-                      <li class="flex items-start">
-                        <span class="text-primary-300 mr-2">✓</span>
-                        <span>
-                          CRM（顧客管理）自動スコアリングで
-                          <strong class="text-primary-300 animate-neon-glow">
-                            商談化率15%向上
-                          </strong>
-                        </span>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </AnimationMatrix>
-
-            <!-- 事例2: トランクルーム運用会社 -->
-            <AnimationMatrix>
-              <div
-                class="neon-border rounded-lg hologram p-6 transition-transform duration-300 bg-gradient-to-br from-primary-900/20 to-secondary-900/20"
-              >
-                <div class="mb-6 space-y-6">
-                  <div class="flex items-center justify-between mb-3">
-                    <span
-                      class="inline-block text-white bg-gradient-to-r from-gray-500 to-gray-700 text-gray-900 px-4 py-2 rounded-full text-sm font-bold"
-                    >
-                      SUCCESS CASE 02
-                    </span>
-                    <div class="text-right">
-                      <div
-                        class="text-primary-300 text-2xl font-bold animate-neon-glow"
-                      >
-                        20%
-                      </div>
-                      <div class="text-primary-200 text-xs">CPA削減</div>
-                    </div>
-                  </div>
-                  <div
-                    class="w-full h-52 bg-gradient-to-r from-gray-500 to-gray-700"
-                  >
-                    <img
-                      src="~/assets/img/white-logo.png"
-                      alt="トランクルーム運用会社"
-                      class="w-full h-full object-contain"
-                    />
-                  </div>
-                  <h3
-                    class="text-xl font-bold text-primary-100 mb-3 leading-tight"
-                  >
-                    トランクルーム運用会社
-                  </h3>
-                  <p class="text-primary-200 text-base mb-4 leading-relaxed">
-                    広告とSEO、ページ表示速度改善を組み合わせた総合的なWebマーケティング支援。CPA（顧客獲得単価）20%削減を実現しました。
-                  </p>
-                </div>
-
-                <div class="space-y-4 mb-6">
-                  <div class="bg-primary-800/20 py-2">
-                    <h4
-                      class="text-primary-100 font-bold mb-3 flex items-center"
-                    >
-                      <svg
-                        class="w-5 h-5 mr-2 text-primary-300"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                      >
-                        <path
-                          fill-rule="evenodd"
-                          d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z"
-                          clip-rule="evenodd"
-                        />
-                      </svg>
-                      実施した施策
-                    </h4>
-                    <ul class="text-primary-200 space-y-2 text-sm">
-                      <li class="flex items-start">
-                        <span class="text-primary-300 mr-2">•</span>
-                        <span
-                          >Google・Facebook広告をLP（ランディングページ）一新で改善</span
-                        >
-                      </li>
-                      <li class="flex items-start">
-                        <span class="text-primary-300 mr-2">•</span>
-                        <span>検索意図に合わせたSEOコンテンツ設計</span>
-                      </li>
-                      <li class="flex items-start">
-                        <span class="text-primary-300 mr-2">•</span>
-                        <span
-                          >Web作品・CDN活用でPageSpeed
-                          Insightsスコアを32点改善</span
-                        >
-                      </li>
-                    </ul>
-                  </div>
-
-                  <div class="bg-primary-800/20 py-2">
-                    <h4
-                      class="text-primary-100 font-bold mb-3 flex items-center"
-                    >
-                      <svg
-                        class="w-5 h-5 mr-2 text-primary-300"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                      >
-                        <path
-                          fill-rule="evenodd"
-                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                          clip-rule="evenodd"
-                        />
-                      </svg>
-                      成果
-                    </h4>
-                    <ul class="text-primary-200 space-y-2 text-sm">
-                      <li class="flex items-start">
-                        <span class="text-primary-300 mr-2">✓</span>
-                        <span>
-                          CPA（顧客獲得単価）を
-                          <strong class="text-primary-300 animate-neon-glow">
-                            20%削減
-                          </strong>
-                        </span>
-                      </li>
-                      <li class="flex items-start">
-                        <span class="text-primary-300 mr-2">✓</span>
-                        <span>
-                          SEO経由のリードを
-                          <strong class="text-primary-300 animate-neon-glow">
-                            40%増加
-                          </strong>
-                        </span>
-                      </li>
-                      <li class="flex items-start">
-                        <span class="text-primary-300 mr-2">✓</span>
-                        <span>
-                          モバイル表示速度を
-                          <strong class="text-primary-300 animate-neon-glow">
-                            1.8秒→0.9秒に改善
-                          </strong>
-                        </span>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </AnimationMatrix>
-
-            <!-- 事例3: D2Cコスメブランド（EC） -->
-            <AnimationMatrix>
-              <div
-                class="neon-border rounded-lg hologram p-6 transition-transform duration-300 bg-gradient-to-br from-primary-900/20 to-secondary-900/20"
-              >
-                <div class="mb-6 space-y-6">
-                  <div class="flex items-center justify-between mb-3">
-                    <span
-                      class="inline-block text-white bg-gradient-to-r from-gray-500 to-gray-700 text-gray-900 px-4 py-2 rounded-full text-sm font-bold"
-                    >
-                      SUCCESS CASE 03
-                    </span>
-                    <div class="text-right">
-                      <div
-                        class="text-primary-300 text-2xl font-bold animate-neon-glow"
-                      >
-                        145%
-                      </div>
-                      <div class="text-primary-200 text-xs">新規獲得増</div>
-                    </div>
-                  </div>
-                  <div
-                    class="w-full h-52 bg-gradient-to-r from-gray-500 to-gray-700"
-                  >
-                    <img
-                      src="~/assets/img/white-logo.png"
-                      alt="D2Cコスメブランド（EC）"
-                      class="w-full h-full object-contain"
-                    />
-                  </div>
-                  <h3
-                    class="text-xl font-bold text-primary-100 mb-3 leading-tight"
-                  >
-                    D2Cコスメブランド（EC）
-                  </h3>
-                  <p class="text-primary-200 text-base mb-4 leading-relaxed">
-                    広告運用の最適化とシステム改善で、新規獲得数145%増を実現。データ分析に基づく施策で広告費を抑えつつ売上を大幅に向上させました。
-                  </p>
-                </div>
-
-                <div class="space-y-4 mb-6">
-                  <div class="bg-primary-800/20 py-2">
-                    <h4
-                      class="text-primary-100 font-bold mb-3 flex items-center"
-                    >
-                      <svg
-                        class="w-5 h-5 mr-2 text-primary-300"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                      >
-                        <path
-                          fill-rule="evenodd"
-                          d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z"
-                          clip-rule="evenodd"
-                        />
-                      </svg>
-                      実施した施策
-                    </h4>
-                    <ul class="text-primary-200 space-y-2 text-sm">
-                      <li class="flex items-start">
-                        <span class="text-primary-300 mr-2">•</span>
-                        <span>UGC調達（顧客の声）でCBO・SNS広告配信</span>
-                      </li>
-                      <li class="flex items-start">
-                        <span class="text-primary-300 mr-2">•</span>
-                        <span>P-MAX（Google自動広告）で新規流入を特化</span>
-                      </li>
-                      <li class="flex items-start">
-                        <span class="text-primary-300 mr-2">•</span>
-                        <span>初回割引LPのA/Bテストで最適化</span>
-                      </li>
-                      <li class="flex items-start">
-                        <span class="text-primary-300 mr-2">•</span>
-                        <span>GTMでイベント再定義・GA4導入で広告連携</span>
-                      </li>
-                      <li class="flex items-start">
-                        <span class="text-primary-300 mr-2">•</span>
-                        <span>EC側（決済システム）でLazy Load導入</span>
-                      </li>
-                      <li class="flex items-start">
-                        <span class="text-primary-300 mr-2">•</span>
-                        <span>BigQueryでデータ集約・可視化</span>
-                      </li>
-                    </ul>
-                  </div>
-
-                  <div class="bg-primary-800/20 py-2">
-                    <h4
-                      class="text-primary-100 font-bold mb-3 flex items-center"
-                    >
-                      <svg
-                        class="w-5 h-5 mr-2 text-primary-300"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                      >
-                        <path
-                          fill-rule="evenodd"
-                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                          clip-rule="evenodd"
-                        />
-                      </svg>
-                      成果
-                    </h4>
-                    <ul class="text-primary-200 space-y-2 text-sm">
-                      <li class="flex items-start">
-                        <span class="text-primary-300 mr-2">✓</span>
-                        <span>
-                          新規顧客獲得数
-                          <strong class="text-primary-300 animate-neon-glow">
-                            145%増（3ヶ月で達成）
-                          </strong>
-                        </span>
-                      </li>
-                      <li class="flex items-start">
-                        <span class="text-primary-300 mr-2">✓</span>
-                        <span>
-                          平均CPA（顧客獲得単価）
-                          <strong class="text-primary-300 animate-neon-glow">
-                            38%削減
-                          </strong>
-                        </span>
-                      </li>
-                      <li class="flex items-start">
-                        <span class="text-primary-300 mr-2">✓</span>
-                        <span>
-                          モバイルCVR（購入率）
-                          <strong class="text-primary-300 animate-neon-glow">
-                            2倍（1.4%→2.8%）
-                          </strong>
-                        </span>
-                      </li>
-                      <li class="flex items-start">
-                        <span class="text-primary-300 mr-2">✓</span>
-                        <span>
-                          売上前月比
-                          <strong class="text-primary-300 animate-neon-glow">
-                            92%向上
-                          </strong>
-                        </span>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </AnimationMatrix>
-          </div>
-        </section>
-      </div>
-    </BackGroundAnimation>
-
-    <div class="w-full">
-      <AnimationMatrix>
-        <GridLinks :links="gridLinks" />
-      </AnimationMatrix>
-    </div>
-  </article>
+    <!-- ===== CTA ===== -->
+    <ContactCtaRow
+      :secondary="{
+        eyebrow: 'SERVICE — 事業内容',
+        title: '他のサービスも見る',
+        label: '事業内容に戻る',
+        to: '/service',
+      }"
+    />
+  </div>
 </template>
 
 <script setup lang="ts">
-import earthBg from "~/assets/img/background/earth.png";
-import networkBg from "~/assets/img/illust/network.png";
-
-const breadcrumbItems = [
-  { label: "事業内容", to: "/service" },
-  { label: "マーケティング実績" },
-];
-
-const gridLinks = [
+const cases = [
   {
-    to: "/service",
-    image: earthBg,
-    title: "SERVICE",
-    description: "事業内容",
+    caseNo: "SUCCESS CASE 01",
+    stat: "18ヶ月",
+    statLabel: "連続目標達成",
+    title: "不動産投資商品開発会社",
+    desc: "システム連携と広告運用の組み合わせで、新規投資家リードの獲得を劇的に効率化。データを活用した精緻な広告配信で、18ヶ月連続で目標を達成しました。",
+    measures: [
+      "自社開発システムで顧客データベースを構築",
+      "TikTok・Google・Facebook広告をAPI連携で一元管理",
+      "キャンペーンデータをCRMにリアルタイム送信",
+    ],
+    results: [
+      { label: "リード送客目標を", strong: "18ヶ月連続達成" },
+      { label: "CPA（顧客獲得単価）を", strong: "30%削減" },
+      { label: "CRM自動スコアリングで", strong: "商談化率15%向上" },
+    ],
   },
   {
-    to: "/contact",
-    image: networkBg,
-    title: "CONTACT",
-    description: "お問いわせ",
+    caseNo: "SUCCESS CASE 02",
+    stat: "20%",
+    statLabel: "CPA削減",
+    title: "トランクルーム運用会社",
+    desc: "広告とSEO、ページ表示速度改善を組み合わせた総合的なWebマーケティング支援。CPA（顧客獲得単価）20%削減を実現しました。",
+    measures: [
+      "Google・Facebook広告をLP一新で改善",
+      "検索意図に合わせたSEOコンテンツ設計",
+      "Web改善・CDN活用でPageSpeed Insightsスコアを32点改善",
+    ],
+    results: [
+      { label: "CPA（顧客獲得単価）を", strong: "20%削減" },
+      { label: "SEO経由のリードを", strong: "40%増加" },
+      { label: "モバイル表示速度を", strong: "1.8秒→0.9秒に改善" },
+    ],
+  },
+  {
+    caseNo: "SUCCESS CASE 03",
+    stat: "145%",
+    statLabel: "新規獲得増",
+    title: "D2Cコスメブランド（EC）",
+    desc: "広告運用の最適化とシステム改善で、新規獲得数145%増を実現。データ分析に基づく施策で広告費を抑えつつ売上を大幅に向上させました。",
+    measures: [
+      "UGC調達（顧客の声）でCBO・SNS広告配信",
+      "P-MAX（Google自動広告）で新規流入を特化",
+      "初回割引LPのA/Bテストで最適化",
+      "GTMでイベント再定義・GA4導入で広告連携",
+      "EC側（決済システム）でLazy Load導入",
+      "BigQueryでデータ集約・可視化",
+    ],
+    results: [
+      { label: "新規顧客獲得数", strong: "145%増（3ヶ月で達成）" },
+      { label: "平均CPA（顧客獲得単価）", strong: "38%削減" },
+      { label: "モバイルCVR（購入率）", strong: "2倍（1.4%→2.8%）" },
+      { label: "売上前月比", strong: "92%向上" },
+    ],
   },
 ];
+
+useHead({
+  title:
+    "マーケティング実績 | Innovation Style - 広告運用・SEO・データ分析事例",
+  meta: [
+    {
+      name: "description",
+      content:
+        "リスティング広告・SNS広告運用、SEO対策、データ分析による効果測定で成果を創出した事例をご紹介。CPA削減、新規顧客獲得数の大幅増加、CVR改善など、データドリブンなマーケティング支援の具体的な成果をご覧いただけます。",
+    },
+  ],
+});
 </script>
-
-<style scoped></style>

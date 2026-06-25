@@ -11,7 +11,17 @@ export default defineNuxtConfig({
     plugins: [tailwindcss()],
   },
   app: {
-    head: {},
+    head: {
+      htmlAttrs: { lang: "ja" },
+      script: [
+        {
+          // スクロールリビールを有効化（JS無効時は .reveal は常時表示のまま）
+          innerHTML:
+            "document.documentElement.classList.add('reveal-enabled')",
+          tagPosition: "head",
+        },
+      ],
+    },
   },
   devtools: { enabled: true },
   modules: [
@@ -23,9 +33,9 @@ export default defineNuxtConfig({
   ],
   googleFonts: {
     families: {
-      Kalam: [300, 400, 700],
-      Caveat: [400, 500, 600, 700],
-      Orbitron: [400, 500, 600, 700, 800, 900],
+      "Space Grotesk": [400, 500, 600, 700],
+      "Noto Sans JP": [400, 500, 700],
+      "JetBrains Mono": [400, 500],
     },
     display: "swap",
   },
