@@ -10,7 +10,7 @@
     <section class="bg-white">
       <div
         v-reveal
-        class="reveal mx-auto grid max-w-[1180px] grid-cols-1 items-center gap-14 px-8 py-24 max-nav:px-5 max-nav:py-16 nav:grid-cols-2"
+        class="reveal mx-auto grid max-w-[1180px] grid-cols-1 items-stretch gap-14 px-8 py-24 max-nav:px-5 max-nav:py-16 nav:grid-cols-2"
       >
         <div>
           <div class="flex items-baseline gap-3.5">
@@ -55,7 +55,7 @@
             >
           </NuxtLink>
         </div>
-        <div class="relative aspect-[4/5]">
+        <div class="relative aspect-[4/5] nav:aspect-auto">
           <div
             class="absolute -left-2.5 -top-2.5 h-[74%] w-[80%] rounded-[5px] bg-accent"
           ></div>
@@ -87,9 +87,9 @@
       ></div>
       <div
         v-reveal
-        class="reveal relative mx-auto grid max-w-[1180px] grid-cols-1 items-center gap-14 px-8 py-24 max-nav:px-5 max-nav:py-16 nav:grid-cols-2"
+        class="reveal relative mx-auto grid max-w-[1180px] grid-cols-1 items-stretch gap-14 px-8 py-24 max-nav:px-5 max-nav:py-16 nav:grid-cols-2"
       >
-        <div class="relative aspect-[4/5] max-nav:order-2 nav:order-1">
+        <div class="relative aspect-[4/5] nav:aspect-auto max-nav:order-2 nav:order-1">
           <div
             class="absolute -bottom-2.5 -right-2.5 h-[74%] w-[80%] rounded-[5px] bg-accent"
           ></div>
