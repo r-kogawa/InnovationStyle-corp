@@ -16,8 +16,7 @@ export default defineNuxtConfig({
       script: [
         {
           // スクロールリビールを有効化（JS無効時は .reveal は常時表示のまま）
-          innerHTML:
-            "document.documentElement.classList.add('reveal-enabled')",
+          innerHTML: "document.documentElement.classList.add('reveal-enabled')",
           tagPosition: "head",
         },
       ],

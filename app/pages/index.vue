@@ -229,7 +229,7 @@
             </div>
             <div
               class="justify-self-start whitespace-nowrap rounded-[3px] px-[11px] py-[5px] text-[11px] font-medium"
-              :class="tagClass(news.tone)"
+              :class="newsChipClass(news.category)"
             >
               {{ news.category }}
             </div>
@@ -381,8 +381,6 @@
 </template>
 
 <script setup lang="ts">
-type NewsTone = "press" | "info" | "achievement";
-
 const services = [
   {
     no: "01",
@@ -408,44 +406,17 @@ const flow = [
   { no: "05", label: "納品・サポート" },
 ];
 
-const newsItems: {
-  date: string;
-  category: string;
-  title: string;
-  tone: NewsTone;
-  to: string;
-}[] = [
-  {
-    date: "2026.06.12",
-    category: "プレスリリース",
-    title: "AI SaaS「AutoLP」の無料βテストを開始しました",
-    tone: "press",
-    to: "/news/7",
-  },
-  {
-    date: "2026.05.20",
-    category: "プレスリリース",
-    title: "AI契約書解析機能の提供を開始しました",
-    tone: "press",
-    to: "/news/1",
-  },
-  {
-    date: "2026.03.10",
-    category: "お知らせ",
-    title: "ゴールデンウィーク期間中の営業についてのお知らせ",
-    tone: "info",
-    to: "/news",
-  },
-];
-
-const tagClass = (tone: NewsTone): string => {
-  const map: Record<NewsTone, string> = {
-    press: "text-ink border border-ink/20 bg-ink/5",
-    info: "text-accent border border-accent/20 bg-accent/5",
-    achievement: "text-steel border border-steel/20 bg-steel/5",
-  };
-  return map[tone];
-};
+// トップに表示する最新お知らせ。記事の単一データソース（useNews）から導出し、
+// リンク先 id と記事データの不整合（存在しない記事へのリンク）を防ぐ。
+const { articles } = useNews();
+const newsItems = computed(() =>
+  articles.slice(0, 3).map((article) => ({
+    date: article.date,
+    category: article.category,
+    title: article.title,
+    to: `/news/${article.id}`,
+  })),
+);
 
 useHead({
   title: "Innovation Style | システム開発 | デジタルマーケティング",
