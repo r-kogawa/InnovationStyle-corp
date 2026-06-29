@@ -47,24 +47,11 @@
         class="mx-auto max-w-[820px] px-8 pb-20 pt-16 max-nav:px-5 max-nav:py-12"
       >
         <!-- key visual -->
-        <div
-          class="mb-10 flex aspect-[16/8] items-end overflow-hidden rounded-[6px] border border-line-strong p-4"
-          style="
-            background:
-              radial-gradient(
-                  circle at 55% 35%,
-                  rgba(94, 110, 146, 0.16),
-                  transparent 60%
-                ),
-              repeating-linear-gradient(
-                135deg,
-                #e9e9ee 0 11px,
-                #e2e2e9 11px 22px
-              );
-          "
-        >
-          <div class="font-mono text-[11px] text-faint-2">key visual</div>
-        </div>
+        <CaseVisual
+          :image="keyVisual"
+          :alt="article.title"
+          class="mb-10 aspect-[16/8]"
+        />
 
         <!-- blocks -->
         <template
@@ -125,6 +112,15 @@
 </template>
 
 <script setup lang="ts">
+import autolpImg from "~/assets/img/service/products/autolp.png";
+import comparlyticsImg from "~/assets/img/service/products/comparlytics.png";
+
+// お知らせの画像キー → バンドル済み画像 URL の対応表
+const newsImageMap: Record<string, string> = {
+  autolp: autolpImg,
+  comparlytics: comparlyticsImg,
+};
+
 const route = useRoute();
 const { getById } = useNews();
 
@@ -139,6 +135,11 @@ if (!article) {
     fatal: true,
   });
 }
+
+// 画像キーに対応する画像があれば使用し、なければ CaseVisual がロゴを表示する
+const keyVisual = computed(() =>
+  article!.image ? newsImageMap[article!.image] : undefined,
+);
 
 const body = computed(
   () =>

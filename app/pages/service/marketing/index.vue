@@ -30,28 +30,17 @@
           v-for="(c, i) in cases"
           :key="c.caseNo"
           v-reveal
-          class="reveal grid grid-cols-1 items-start gap-13 max-nav:gap-6 nav:grid-cols-[0.82fr_1.18fr]"
+          class="reveal grid grid-cols-1 items-stretch gap-13 max-nav:gap-6 nav:grid-cols-[0.82fr_1.18fr]"
         >
           <!-- visual -->
-          <div
-            class="relative aspect-[4/5] overflow-hidden rounded-[6px] border border-line-strong"
+          <CaseVisual
+            :image="c.image"
+            :alt="c.title"
+            class="aspect-[4/5] nav:aspect-auto"
             :class="i % 2 === 1 ? 'nav:order-2' : ''"
-            style="
-              background:
-                radial-gradient(
-                    circle at 55% 35%,
-                    rgba(94, 110, 146, 0.16),
-                    transparent 60%
-                  ),
-                repeating-linear-gradient(
-                  135deg,
-                  #e9e9ee 0 11px,
-                  #e2e2e9 11px 22px
-                );
-            "
           >
             <div
-              class="absolute left-[18px] top-4 font-mono text-[10px] tracking-[0.14em] text-faint"
+              class="absolute left-[18px] top-4 rounded-[3px] bg-white/80 px-2 py-1 font-mono text-[10px] tracking-[0.14em] text-faint backdrop-blur-sm"
             >
               {{ c.caseNo }}
             </div>
@@ -67,7 +56,7 @@
                 {{ c.statLabel }}
               </div>
             </div>
-          </div>
+          </CaseVisual>
           <!-- content -->
           <div :class="i % 2 === 1 ? 'nav:order-1' : ''">
             <h3 class="m-0 text-[23px] font-bold leading-[1.5]">
@@ -130,7 +119,26 @@
 </template>
 
 <script setup lang="ts">
-const cases = [
+import dokoTrunkImg from "~/assets/img/service/products/doko-trunk.png";
+
+interface MarketingResult {
+  label: string;
+  strong: string;
+}
+
+interface MarketingCase {
+  caseNo: string;
+  stat: string;
+  statLabel: string;
+  title: string;
+  desc: string;
+  measures: string[];
+  results: MarketingResult[];
+  /** 該当する製品画像（未設定時は CaseVisual がロゴを表示） */
+  image?: string;
+}
+
+const cases: MarketingCase[] = [
   {
     caseNo: "SUCCESS CASE 01",
     stat: "18ヶ月",

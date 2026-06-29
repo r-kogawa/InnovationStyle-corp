@@ -202,6 +202,99 @@
       </div>
     </section>
 
+    <!-- ===== OUR PRODUCTS（自社開発サービス） ===== -->
+    <section class="relative overflow-hidden border-t border-line bg-surface">
+      <div class="absolute inset-0 bg-dotgrid opacity-70"></div>
+      <div
+        class="pointer-events-none absolute -top-[10%] right-[4%] h-[460px] w-[460px]"
+        style="
+          background: radial-gradient(
+            circle,
+            rgba(108, 106, 240, 0.1),
+            transparent 65%
+          );
+        "
+      ></div>
+      <div
+        v-reveal
+        class="reveal relative mx-auto max-w-[1180px] px-8 py-24 max-nav:px-5 max-nav:py-16"
+      >
+        <div class="font-mono text-[11px] tracking-[0.22em] text-faint-2">
+          OUR PRODUCTS
+        </div>
+        <div class="mt-3.5 text-[30px] font-bold">自社開発サービス</div>
+        <p class="mt-4 max-w-[640px] text-[14px] leading-[1.9] text-body">
+          システム開発とマーケティングの知見を融合し、自社プロダクトとして新しいサービスを企画・開発・リリースしています。
+        </p>
+        <div
+          class="mt-12 grid grid-cols-1 gap-6 min-[521px]:grid-cols-2 nav:grid-cols-3"
+        >
+          <a
+            v-for="product in products"
+            :key="product.name"
+            :href="product.url"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group relative flex flex-col overflow-hidden rounded-[6px] border border-line bg-white transition-all duration-300 hover:-translate-y-1 hover:border-accent/30 hover:shadow-[0_14px_34px_rgba(20,21,42,0.09)]"
+          >
+            <!-- イメージ画像（公式サイトのキービジュアル） -->
+            <div
+              class="relative aspect-[16/10] w-full overflow-hidden border-b border-line-soft bg-surface"
+            >
+              <img
+                :src="product.image"
+                :alt="`${product.name} のサービスイメージ`"
+                loading="lazy"
+                class="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.04]"
+              />
+            </div>
+
+            <!-- 本文 -->
+            <div class="relative flex flex-1 flex-col p-7">
+              <!-- texture -->
+              <div
+                class="pointer-events-none absolute inset-0 bg-dotgrid opacity-40"
+              ></div>
+              <div class="relative flex h-full flex-col">
+                <div class="flex items-center justify-between">
+                  <span
+                    class="font-mono text-[10px] tracking-[0.16em] text-accent"
+                    >{{ product.category }}</span
+                  >
+                  <span
+                    class="rounded-full border border-line-strong px-2.5 py-1 font-mono text-[10px] tracking-[0.1em] text-steel"
+                    >{{ product.status }}</span
+                  >
+                </div>
+                <div
+                  class="mt-5 font-display text-[24px] font-semibold tracking-[-0.01em] text-ink"
+                >
+                  {{ product.name }}
+                </div>
+                <div
+                  class="mt-1.5 text-[12px] font-medium leading-[1.6] text-accent"
+                >
+                  {{ product.tagline }}
+                </div>
+                <p class="mt-3.5 text-[13px] leading-[1.95] text-body">
+                  {{ product.desc }}
+                </p>
+                <div
+                  class="mt-auto flex items-center gap-2 pt-6 font-mono text-[11px] tracking-[0.1em] text-accent"
+                >
+                  公式サイト
+                  <span
+                    class="transition-transform duration-200 group-hover:translate-x-1"
+                    >↗</span
+                  >
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
     <!-- ===== CTA ===== -->
     <ContactCtaRow
       :secondary="{
@@ -215,6 +308,11 @@
 </template>
 
 <script setup lang="ts">
+// 自社サービスのイメージ画像（動的 :src で使うため import で URL 解決する）
+import autolpImage from "~/assets/img/service/products/autolp.png";
+import comparlyticsImage from "~/assets/img/service/products/comparlytics.png";
+import dokoTrunkImage from "~/assets/img/service/products/doko-trunk.png";
+
 const systemList = [
   { no: "01", text: "Web・モバイルアプリケーション開発" },
   { no: "02", text: "AI導入によるインテリジェントなシステム構築" },
@@ -239,13 +337,44 @@ const flow = [
   { no: "05", label: "納品・サポート" },
 ];
 
+// 自社開発サービス（PR TIMES でリリース済みのプロダクト）
+const products = [
+  {
+    name: "AutoLP",
+    category: "AI SaaS",
+    status: "β公開中",
+    tagline: "AIでLP制作から公開までを自動化",
+    desc: "リサーチ・マーケ・コーディング・デザインの各AIが連携し、チャットの会話だけでランディングページを生成・編集・公開できるクラウドサービス。",
+    url: "https://auto-landing.com/",
+    image: autolpImage,
+  },
+  {
+    name: "Comparlytics",
+    category: "AI SaaS",
+    status: "β公開中",
+    tagline: "施策と効果を一目で可視化するAIダッシュボード",
+    desc: "開発データとマーケティングデータを統合し、どの施策が売上に貢献したかをリアルタイムで可視化。AIが統計検定と推奨アクションまで提示します。",
+    url: "https://comparlytics.net/",
+    image: comparlyticsImage,
+  },
+  {
+    name: "DOKO TRUNK",
+    category: "Webサービス",
+    status: "提供中",
+    tagline: "トランクルーム・収納スペースのポータルサイト",
+    desc: "全国のトランクルーム情報を一元化し、希望条件での検索・比較から事業者への直接問い合わせまでを可能にする利用者向けプラットフォーム。",
+    url: "https://doko-trunk.com/",
+    image: dokoTrunkImage,
+  },
+];
+
 useHead({
   title: "事業内容 | Innovation Style - システム開発・デジタルマーケティング",
   meta: [
     {
       name: "description",
       content:
-        "Innovation Styleの事業内容をご紹介。Web・モバイルアプリ開発、AI導入支援、クラウド連携などのシステム開発から、リスティング広告、SNS広告運用、SEO対策、コンテンツマーケティングまで。要件定義から納品・保守まで一貫したサポートで、お客様のDX実現とビジネス成長を加速します。",
+        "Innovation Styleの事業内容をご紹介。Web・モバイルアプリ開発、AI導入支援、クラウド連携などのシステム開発から、リスティング広告、SNS広告運用、SEO対策、コンテンツマーケティングまで。さらに自社開発サービス『AutoLP』『Comparlytics』『DOKO TRUNK』も展開。要件定義から納品・保守まで一貫したサポートで、お客様のDX実現とビジネス成長を加速します。",
     },
   ],
 });

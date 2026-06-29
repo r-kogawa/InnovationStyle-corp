@@ -33,25 +33,14 @@
           class="reveal grid grid-cols-1 items-center gap-13 max-nav:gap-6 nav:grid-cols-2"
         >
           <!-- visual -->
-          <div
-            class="relative aspect-[16/11] overflow-hidden rounded-[6px] border border-line-strong"
+          <CaseVisual
+            :image="c.image"
+            :alt="c.title"
+            class="aspect-[16/11]"
             :class="i % 2 === 1 ? 'nav:order-2' : ''"
-            style="
-              background:
-                radial-gradient(
-                    circle at 60% 35%,
-                    rgba(94, 110, 146, 0.16),
-                    transparent 60%
-                  ),
-                repeating-linear-gradient(
-                  135deg,
-                  #e9e9ee 0 11px,
-                  #e2e2e9 11px 22px
-                );
-            "
           >
             <div
-              class="absolute left-[18px] top-4 font-mono text-[10px] tracking-[0.14em] text-faint"
+              class="absolute left-[18px] top-4 rounded-[3px] bg-white/80 px-2 py-1 font-mono text-[10px] tracking-[0.14em] text-faint backdrop-blur-sm"
             >
               {{ c.story }}
             </div>
@@ -65,7 +54,7 @@
               </div>
               <div class="mt-1 text-[11px] text-body">{{ c.statLabel }}</div>
             </div>
-          </div>
+          </CaseVisual>
           <!-- content -->
           <div :class="i % 2 === 1 ? 'nav:order-1' : ''">
             <h3 class="m-0 text-[23px] font-bold leading-[1.5]">
@@ -106,7 +95,21 @@
 </template>
 
 <script setup lang="ts">
-const cases = [
+import dokoTrunkImg from "~/assets/img/service/products/doko-trunk.png";
+import comparlyticsImg from "~/assets/img/service/products/comparlytics.png";
+
+interface SystemCase {
+  story: string;
+  stat: string;
+  statLabel: string;
+  title: string;
+  desc: string;
+  effects: string[];
+  /** 該当する製品画像（未設定時は CaseVisual がロゴを表示） */
+  image?: string;
+}
+
+const cases: SystemCase[] = [
   {
     story: "SUCCESS STORY 01",
     stat: "50%",
@@ -117,30 +120,6 @@ const cases = [
       "契約書作成時間を50%削減",
       "入力ミスをゼロに",
       "契約進捗をリアルタイムで把握可能",
-    ],
-  },
-  {
-    story: "SUCCESS STORY 02",
-    stat: "300%",
-    statLabel: "問い合わせ増加",
-    title: "地図検索機能付き物件検索サイト",
-    desc: "スマートフォンの位置情報を活用し、現在地から最寄りのトランクルームを簡単に見つけられる検索サイトを開発。直感的な地図操作で物件探しが劇的に便利になりました。",
-    effects: [
-      "地図上で直感的に物件検索が可能",
-      "現在地からの距離・時間を自動表示",
-      "問い合わせ数が3倍に増加",
-    ],
-  },
-  {
-    story: "SUCCESS STORY 03",
-    stat: "80%",
-    statLabel: "分析時間短縮",
-    title: "マーケティング効果測定ダッシュボード",
-    desc: "複数の広告媒体とウェブサイトのデータを一元管理し、リアルタイムで効果測定できるダッシュボードを構築。データに基づいた迅速な意思決定を可能にしました。",
-    effects: [
-      "全データを1つの画面で確認可能",
-      "分析作業時間を80%削減",
-      "異常値を自動検知・通知",
     ],
   },
   {

@@ -416,6 +416,13 @@ const newsItems: {
   to: string;
 }[] = [
   {
+    date: "2026.06.12",
+    category: "プレスリリース",
+    title: "AI SaaS「AutoLP」の無料βテストを開始しました",
+    tone: "press",
+    to: "/news/7",
+  },
+  {
     date: "2026.05.20",
     category: "プレスリリース",
     title: "AI契約書解析機能の提供を開始しました",
@@ -427,13 +434,6 @@ const newsItems: {
     category: "お知らせ",
     title: "ゴールデンウィーク期間中の営業についてのお知らせ",
     tone: "info",
-    to: "/news",
-  },
-  {
-    date: "2026.01.15",
-    category: "実績",
-    title: "D2Cコスメブランドの新規顧客獲得145%増を達成しました",
-    tone: "achievement",
     to: "/news",
   },
 ];
