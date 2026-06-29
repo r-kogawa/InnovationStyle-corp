@@ -114,10 +114,18 @@
                 name="inquiry_type"
                 :class="inputClass"
               >
-                <option>システム開発について</option>
-                <option>マーケティングについて</option>
-                <option>お見積もり・ご相談</option>
-                <option>その他</option>
+                <optgroup
+                  v-for="group in inquiryGroups"
+                  :key="group.label"
+                  :label="group.label"
+                >
+                  <option
+                    v-for="option in group.options"
+                    :key="option"
+                  >
+                    {{ option }}
+                  </option>
+                </optgroup>
               </select>
             </div>
 
@@ -177,12 +185,48 @@ const is_error = ref<boolean>(false);
 const is_submit = ref<boolean>(false);
 const agreed = ref<boolean>(false);
 
+// お問い合わせ種別（select の選択肢はここを唯一の定義元にする）。
+// option 文言を変える場合はここだけ直せば、表示とクエリ検証の両方に反映される。
+const inquiryGroups = [
+  {
+    label: "お問い合わせ",
+    options: [
+      "システム開発について",
+      "マーケティングについて",
+      "お見積もり・ご相談",
+      "その他",
+    ],
+  },
+  {
+    label: "採用",
+    options: [
+      "採用エントリー（ソフトウェアエンジニア）",
+      "採用エントリー（マーケティング）",
+      "採用エントリー（UI/UXデザイナー）",
+      "カジュアル面談",
+    ],
+  },
+];
+const DEFAULT_INQUIRY_TYPE = "システム開発について";
+
+// リクルートページ等から ?type= で遷移してきたとき、該当種別を初期選択する。
+// 既存の選択肢に一致する値のみ採用し、不正値は既定へフォールバックする。
+const route = useRoute();
+const queryType = Array.isArray(route.query.type)
+  ? route.query.type[0]
+  : route.query.type;
+const initialInquiryType = inquiryGroups.some((g) =>
+  g.options.includes(queryType ?? "")
+)
+  ? (queryType as string)
+  : DEFAULT_INQUIRY_TYPE;
+
 const form = ref({
   company_name: "",
   name: "",
   email: "",
   phone: "",
-  inquiry_type: "システム開発について",
+  inquiry_type: initialInquiryType,
   message: "",
 });
 
