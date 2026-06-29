@@ -2,34 +2,16 @@
   <div>
     <!-- ===== HERO (centered authority / 初回表示はビューポート高いっぱい) ===== -->
     <section
-      class="relative flex min-h-[calc(100svh-67px)] flex-col justify-center overflow-hidden bg-white"
+      class="relative flex min-h-[calc(100svh-67px)] flex-col justify-center overflow-hidden bg-[#dadbec]"
     >
-      <!-- faint dot grid -->
-      <div
-        class="absolute inset-0"
-        style="
-          background-image: radial-gradient(
-            circle,
-            rgba(71, 68, 184, 0.055) 1px,
-            transparent 1.4px
-          );
-          background-size: 30px 30px;
-        "
-      ></div>
-      <!-- centered glow -->
-      <div
-        class="pointer-events-none absolute left-1/2 top-[-220px] h-[580px] w-[860px] -translate-x-1/2"
-        style="
-          background: radial-gradient(
-            ellipse at center,
-            rgba(71, 68, 184, 0.14),
-            transparent 62%
-          );
-        "
-      ></div>
+      <!-- アニメーション背景（FirstView と同じ Vanta NET） -->
+      <VantaNetBackground
+        color="#4744b8"
+        background-color="#dadbec"
+      />
       <div
         v-reveal
-        class="reveal relative mx-auto w-full max-w-[800px] px-8 py-[72px] text-center max-nav:px-5 max-nav:py-[64px]"
+        class="reveal relative z-10 mx-auto w-full max-w-[800px] px-8 py-[72px] text-center max-nav:px-5 max-nav:py-[64px]"
       >
         <div
           class="mb-[30px] font-mono text-[12px] tracking-[0.3em] text-accent"

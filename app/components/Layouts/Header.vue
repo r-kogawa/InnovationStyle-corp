@@ -74,7 +74,7 @@
     >
       <div
         v-if="isMenuOpen"
-        class="border-t border-line bg-surface/95 backdrop-blur-md nav:hidden"
+        class="absolute inset-x-0 top-full z-40 border-t border-line bg-surface/95 shadow-[0_14px_30px_-16px_rgba(20,21,42,0.25)] backdrop-blur-md nav:hidden"
       >
         <div class="flex flex-col px-[22px] pb-[18px] pt-2">
           <NuxtLink

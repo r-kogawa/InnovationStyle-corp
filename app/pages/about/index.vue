@@ -19,11 +19,14 @@
           <p
             class="m-0 text-[clamp(26px,4vw,38px)] font-bold leading-[1.5] tracking-[0.01em]"
           >
-            革新的な発想と<br />先進技術の融合で、<br /><span class="text-accent"
+            革新的な発想と<br />先進技術の融合で、<br /><span
+              class="text-accent"
               >DXの推進</span
             >を実現する。
           </p>
-          <p class="mt-[30px] max-w-[620px] text-[15px] leading-[2.1] text-body">
+          <p
+            class="mt-[30px] max-w-[620px] text-[15px] leading-[2.1] text-body"
+          >
             Innovation
             Styleは、システム開発とデジタルマーケティングという2つの専門領域を掛け合わせ、企業のデジタルトランスフォーメーションを支援するテクノロジーカンパニーです。最先端の技術力と卓越したシステム設計、そしてデータ駆動型のマーケティングで、企画から実装・運用まで一気通貫に伴走します。
           </p>
@@ -41,37 +44,97 @@
           TWO PILLARS
         </div>
         <div class="grid grid-cols-1 gap-6 nav:grid-cols-2">
-          <!-- 01 system -->
+          <!-- 01 system（白パネル：ContactCtaRow お問い合わせ側に対応） -->
           <div
-            class="rounded-[6px] border border-line bg-white p-10 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_14px_34px_rgba(20,21,42,0.09)]"
+            class="group relative overflow-hidden rounded-[6px] border border-line bg-white p-10 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_14px_34px_rgba(20,21,42,0.09)]"
           >
-            <div class="font-display text-[13px] font-semibold text-accent">
-              01 / SYSTEM
-            </div>
-            <div class="mt-3.5 text-[22px] font-bold">テクノロジー</div>
-            <p class="mt-3.5 text-[13px] leading-[1.95] text-body">
-              Web・モバイルアプリ開発からAI導入、API連携、クラウド構築まで。事業の根幹を支えるシステムを、設計から運用まで一貫して構築します。
-            </p>
-          </div>
-          <!-- 02 marketing -->
-          <div
-            class="relative overflow-hidden rounded-[6px] border border-accent/20 bg-accent/[0.05] p-10 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_14px_34px_rgba(71,68,184,0.12)]"
-          >
+            <!-- texture -->
             <div
-              class="pointer-events-none absolute -right-16 -top-16 h-60 w-60"
+              class="pointer-events-none absolute inset-0 bg-dotgrid opacity-50"
+            ></div>
+            <!-- glow -->
+            <div
+              class="pointer-events-none absolute -left-16 bottom-[-90px] h-[260px] w-[260px]"
               style="
                 background: radial-gradient(
                   circle,
-                  rgba(108, 106, 240, 0.12),
+                  rgba(108, 106, 240, 0.1),
                   transparent 65%
                 );
               "
             ></div>
+            <!-- watermark -->
+            <div
+              class="pointer-events-none absolute -bottom-2 right-4 select-none font-display text-[50px] md:text-[60px] font-bold leading-none text-ink/[0.06]"
+            >
+              SYSTEM
+            </div>
+            <!-- corner frame -->
+            <div
+              class="pointer-events-none absolute left-5 top-5 h-8 w-8 border-l border-t border-line-strong"
+            ></div>
+
             <div class="relative">
-              <div class="font-display text-[13px] font-semibold text-accent">
-                02 / MARKETING
+              <div
+                class="flex items-center gap-3 font-mono text-[11px] tracking-[0.24em] text-accent"
+              >
+                <span class="h-px w-7 bg-accent/50"></span>01 / SYSTEM
               </div>
-              <div class="mt-3.5 text-[22px] font-bold">マーケティング</div>
+              <div class="mt-5 text-[22px] font-bold text-ink">
+                テクノロジー
+              </div>
+              <p class="mt-3.5 text-[13px] leading-[1.95] text-body">
+                Web・モバイルアプリ開発からAI導入、API連携、クラウド構築まで。事業の根幹を支えるシステムを、設計から運用まで一貫して構築します。
+              </p>
+            </div>
+          </div>
+          <!-- 02 marketing（アクセントパネル：ContactCtaRow 動線側に対応） -->
+          <div
+            class="group relative overflow-hidden rounded-[6px] border border-accent/15 p-10 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_14px_34px_rgba(71,68,184,0.14)]"
+            style="
+              background: linear-gradient(
+                145deg,
+                #f4f4fc 0%,
+                #ecedf8 52%,
+                #e3e4f4 100%
+              );
+            "
+          >
+            <!-- texture -->
+            <div
+              class="pointer-events-none absolute inset-0 bg-dotgrid opacity-70"
+            ></div>
+            <!-- glow -->
+            <div
+              class="pointer-events-none absolute -right-12 -top-16 h-[260px] w-[260px]"
+              style="
+                background: radial-gradient(
+                  circle,
+                  rgba(108, 106, 240, 0.16),
+                  transparent 65%
+                );
+              "
+            ></div>
+            <!-- watermark -->
+            <div
+              class="pointer-events-none absolute -bottom-2 right-4 select-none font-display text-[50px] md:text-[60px] font-bold leading-none text-accent/[0.07]"
+            >
+              MARKETING
+            </div>
+            <!-- corner frame -->
+            <div
+              class="pointer-events-none absolute left-5 top-5 h-8 w-8 border-l border-t border-accent/30"
+            ></div>
+
+            <div class="relative">
+              <div
+                class="flex items-center gap-3 font-mono text-[11px] tracking-[0.24em] text-accent"
+              >
+                <span class="h-px w-7 bg-accent/40"></span>02 / MARKETING
+              </div>
+              <div class="mt-5 text-[22px] font-bold text-ink">
+                マーケティング
+              </div>
               <p class="mt-3.5 text-[13px] leading-[1.95] text-body">
                 広告運用・SEO・コンテンツ制作まで、データ駆動型のアプローチで成果を最大化。作ったシステムを「使われる」状態まで届けます。
               </p>
@@ -98,11 +161,16 @@
             v-for="(s, i) in strengths"
             :key="s.no"
             class="py-[34px]"
-            :class="
+            :class="[
+              i === 0
+                ? 'nav:pr-7'
+                : i === strengths.length - 1
+                ? 'nav:pl-7'
+                : 'nav:px-7',
               i < strengths.length - 1
-                ? 'border-line-soft max-nav:border-b nav:border-r nav:pr-7'
-                : 'nav:pl-7'
-            "
+                ? 'border-line-soft max-nav:border-b nav:border-r'
+                : '',
+            ]"
           >
             <div class="font-display text-[40px] font-semibold text-[#d6d6e0]">
               {{ s.no }}

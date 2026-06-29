@@ -29,7 +29,7 @@
       ></div>
       <!-- watermark -->
       <div
-        class="pointer-events-none absolute -bottom-7 right-6 select-none font-display text-[124px] font-bold leading-none text-accent/[0.07] max-nav:hidden"
+        class="pointer-events-none absolute -bottom-3 right-4 select-none font-display text-[60px] md:text-[124px] font-bold leading-none text-accent/[0.07]"
       >
         {{ watermark(secondary.eyebrow) }}
       </div>
@@ -83,7 +83,7 @@
       ></div>
       <!-- watermark -->
       <div
-        class="pointer-events-none absolute -bottom-8 right-6 select-none font-display text-[124px] font-bold leading-none text-ink/[0.04] max-nav:hidden"
+        class="pointer-events-none absolute -bottom-3 right-4 select-none font-display text-[60px] md:text-[124px] font-bold leading-none text-ink/[0.06]"
       >
         {{ watermark(primary.eyebrow) }}
       </div>
@@ -144,7 +144,7 @@ withDefaults(
       label: "お問い合わせ",
       to: "/contact",
     }),
-  },
+  }
 );
 
 /** eyebrow（`SERVICE — 事業内容`）の先頭英字を背景ウォーターマーク用に抽出 */
