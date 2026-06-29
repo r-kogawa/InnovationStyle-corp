@@ -279,7 +279,7 @@
           ></div>
           <!-- watermark -->
           <div
-            class="pointer-events-none absolute -bottom-7 right-6 select-none font-display text-[124px] font-bold leading-none text-accent/[0.07] max-nav:hidden"
+            class="pointer-events-none absolute -bottom-3 right-4 select-none font-display text-[60px] md:text-[100px] font-bold leading-none text-accent/[0.07]"
           >
             CAREERS
           </div>
@@ -338,7 +338,7 @@
           ></div>
           <!-- watermark -->
           <div
-            class="pointer-events-none absolute -bottom-8 right-6 select-none font-display text-[124px] font-bold leading-none text-ink/[0.04] max-nav:hidden"
+            class="pointer-events-none absolute -bottom-3 right-4 select-none font-display text-[60px] md:text-[100px] font-bold leading-none text-ink/[0.04]"
           >
             CONTACT
           </div>
@@ -415,7 +415,7 @@ const newsItems = computed(() =>
     category: article.category,
     title: article.title,
     to: `/news/${article.id}`,
-  })),
+  }))
 );
 
 useHead({
