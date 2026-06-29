@@ -13,7 +13,7 @@
         <!-- left info -->
         <div>
           <p class="m-0 text-[15px] leading-[2] text-body">
-            システム開発・マーケティングに関するご相談、お見積もり、その他お問い合わせはこちらのフォームよりお気軽にご連絡ください。<br />通常2営業日以内にご返信いたします。
+            システム開発・マーケティングに関するご相談、お見積もり、その他お問い合わせはこちらのフォームよりお気軽にご連絡ください。
           </p>
           <div class="mt-9 border-t border-line-soft">
             <div class="border-b border-line-soft py-[22px]">
