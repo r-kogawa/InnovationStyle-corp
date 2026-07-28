@@ -1,5 +1,5 @@
 <template>
-  <main class="bg-gradient-to-b from-white to-zinc-100">
+  <main class="bg-surface text-ink font-sans antialiased">
     <LayoutsHeader />
     <NuxtPage />
     <LayoutsFooter />

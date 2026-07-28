@@ -1,45 +1,42 @@
 <template>
-  <div class="border-b border-gray-200 transition-all duration-300">
+  <div class="overflow-hidden rounded-[6px] border border-line bg-white">
     <button
+      type="button"
+      class="flex w-full items-center justify-between gap-4 px-6 py-5 text-left max-nav:px-5"
+      :aria-expanded="isOpen"
       @click="isOpen = !isOpen"
-      class="w-full px-6 md:px-8 py-4 text-left flex items-center justify-between"
     >
-      <h3 class="text-md md:text-lg font-orbitron text-slate-700 pr-4">
-        Q：{{ title }}
-      </h3>
-      <div class="flex-shrink-0">
-        <svg
-          :class="{ 'rotate-180': isOpen }"
-          class="w-5 h-5 text-gray-500 transform transition-transform duration-200"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M19 9l-7 7-7-7"
-          />
-        </svg>
-      </div>
+      <span class="flex gap-3 text-[15px] font-bold leading-[1.6]">
+        <span class="font-display text-accent">Q</span>{{ title }}
+      </span>
+      <span
+        class="inline-block flex-shrink-0 font-display text-[22px] text-accent transition-transform duration-200"
+        :class="{ 'rotate-45': isOpen }"
+        >+</span
+      >
     </button>
-    <div
-      v-show="isOpen"
-      class="px-6 md:px-8 pb-6 flex"
+    <Transition
+      enter-active-class="transition-all duration-300 ease-out overflow-hidden"
+      leave-active-class="transition-all duration-200 ease-in overflow-hidden"
+      enter-from-class="opacity-0 max-h-0"
+      enter-to-class="opacity-100 max-h-[400px]"
+      leave-from-class="opacity-100 max-h-[400px]"
+      leave-to-class="opacity-0 max-h-0"
     >
-      <h3 class="text-md md:text-lg font-orbitron pr-4 text-emerald-500">
-        A：
-      </h3>
-      <p class="text-slate-700 leading-relaxed">
-        {{ content }}
-      </p>
-    </div>
+      <div
+        v-show="isOpen"
+        class="border-t border-line-soft bg-[#fbfbfc] px-6 py-5 max-nav:px-5"
+      >
+        <p class="flex gap-3 text-[14px] leading-[1.95] text-body">
+          <span class="font-display text-faint-2">A</span>{{ content }}
+        </p>
+      </div>
+    </Transition>
   </div>
 </template>
 
 <script setup lang="ts">
-const props = defineProps<{
+defineProps<{
   title: string;
   content: string;
 }>();

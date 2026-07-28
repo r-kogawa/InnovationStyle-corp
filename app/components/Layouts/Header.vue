@@ -1,65 +1,69 @@
 <template>
   <header
-    class="relative bg-gradient-to-br from-slate-50 to-zinc-200 border-b border-slate-900 shadow-sm"
+    class="sticky top-0 z-50 border-b border-line bg-surface/80 font-sans backdrop-blur-md"
   >
-    <div class="container mx-auto py-4 md:py-6 px-4 md:px-0">
-      <div class="flex justify-between items-center">
+    <div
+      class="mx-auto flex h-[66px] max-w-[1180px] items-center justify-between px-[22px]"
+    >
+      <!-- ロゴ -->
+      <NuxtLink
+        to="/"
+        class="flex items-center gap-2.5"
+      >
+        <img
+          src="~/assets/img/logo.png"
+          alt="logo"
+          class="w-8 h-8"
+        />
+        <span
+          class="font-display text-[20px] font-semibold tracking-[-0.01em] text-ink"
+        >
+          Innovation Style
+        </span>
+      </NuxtLink>
+
+      <!-- デスクトップナビ -->
+      <nav class="hidden items-center gap-7 nav:flex">
         <NuxtLink
-          class="flex gap-2 items-center"
-          to="/"
+          v-for="item in navItems"
+          :key="item.to"
+          :to="item.to"
+          class="font-mono text-[11px] tracking-[0.14em] text-[#2a2c3c] transition-colors hover:text-accent"
         >
-          <img
-            src="~/assets/img/logo.png"
-            alt="logo"
-            class="w-8 h-8 md:w-10 md:h-10"
-          />
-          <span class="text-xl md:text-2xl font-bold font-orbitron">
-            Innovation Style
-          </span>
+          {{ item.label }}
         </NuxtLink>
-        <div
-          class="hidden md:flex gap-10 items-center text-lg text-slate-700 font-orbitron"
+        <NuxtLink
+          to="/contact"
+          class="rounded-[3px] bg-ink px-[17px] py-2.5 font-mono text-[11px] tracking-[0.14em] text-white transition-colors hover:bg-accent"
         >
-          <NuxtLink
-            to="/about"
-            class="hover:border-b hover:border-slate-500 transition-all duration-50"
-          >
-            ABOUT US
-          </NuxtLink>
-          <NuxtLink
-            to="/service"
-            class="hover:border-b hover:border-slate-500 transition-all duration-50"
-          >
-            SERVICE
-          </NuxtLink>
-          <NuxtLink
-            to="/company"
-            class="hover:border-b hover:border-slate-500 transition-all duration-50"
-          >
-            COMPANY
-          </NuxtLink>
-          <NuxtLink
-            to="/contact"
-            class="hover:border-b hover:border-slate-500 transition-all duration-50"
-          >
-            CONTACT
-          </NuxtLink>
-        </div>
-        <div class="md:hidden">
-          <button
-            @click="isMenuOpen = !isMenuOpen"
-            class="relative p-1"
-          >
-            <Icon
-              :name="isMenuOpen ? 'mdi:close' : 'mdi:menu'"
-              class="w-7 h-7 text-slate-700 transition-all duration-300"
-              :class="{ 'rotate-90': isMenuOpen }"
-            />
-          </button>
-        </div>
-      </div>
+          CONTACT
+        </NuxtLink>
+      </nav>
+
+      <!-- バーガー（モバイル） -->
+      <button
+        type="button"
+        aria-label="menu"
+        :aria-expanded="isMenuOpen"
+        class="flex h-[42px] w-[42px] flex-col items-center justify-center gap-[5px] rounded-[4px] border border-[#d4d4dc] bg-white nav:hidden"
+        @click="isMenuOpen = !isMenuOpen"
+      >
+        <span
+          class="block h-[1.5px] w-[18px] bg-ink transition-transform duration-300"
+          :class="{ 'translate-y-[6.5px] rotate-45': isMenuOpen }"
+        ></span>
+        <span
+          class="block h-[1.5px] w-[18px] bg-ink transition-opacity duration-200"
+          :class="{ 'opacity-0': isMenuOpen }"
+        ></span>
+        <span
+          class="block h-[1.5px] w-[18px] bg-ink transition-transform duration-300"
+          :class="{ '-translate-y-[6.5px] -rotate-45': isMenuOpen }"
+        ></span>
+      </button>
     </div>
-    <!-- モバイルメニューのアニメーション -->
+
+    <!-- モバイルメニュー -->
     <Transition
       enter-active-class="transition-all duration-200 ease-out"
       leave-active-class="transition-all duration-200 ease-in"
@@ -70,49 +74,24 @@
     >
       <div
         v-if="isMenuOpen"
-        class="absolute top-18 left-0 w-full h-fit z-50 bg-white/95 backdrop-blur-md border-b border-slate-300 shadow-xl"
-        style="background-color: rgba(255, 255, 255, 0.98) !important"
+        class="absolute inset-x-0 top-full z-40 border-t border-line bg-surface/95 shadow-[0_14px_30px_-16px_rgba(20,21,42,0.25)] backdrop-blur-md nav:hidden"
       >
-        <div class="grid grid-cols-1 h-full">
+        <div class="flex flex-col px-[22px] pb-[18px] pt-2">
           <NuxtLink
+            v-for="item in navItems"
+            :key="item.to"
+            :to="item.to"
+            class="border-b border-line-soft py-3.5 font-mono text-[13px] tracking-[0.12em] text-[#2a2c3c]"
             @click="isMenuOpen = false"
-            class="flex items-center gap-1 text-left border-b border-slate-300 p-3 font-orbitron bg-white/90 hover:bg-gray-100 transition-colors duration-200"
-            style="background-color: rgba(255, 255, 255, 0.95) !important"
-            to="/about"
           >
-            <h2 class="font-orbitron text-slate-700">ABOUT US</h2>
-            <span class="text-lg text-slate-500">/</span>
-            <p class="text-sm text-gray-500">私たちについて</p>
+            {{ item.label }}
           </NuxtLink>
           <NuxtLink
-            @click="isMenuOpen = false"
-            class="flex items-center gap-1 text-left border-b border-slate-300 p-3 font-orbitron bg-white/90 hover:bg-gray-100 transition-colors duration-200"
-            style="background-color: rgba(255, 255, 255, 0.95) !important"
-            to="/service"
-          >
-            <h2 class="font-orbitron text-slate-700">SERVICE</h2>
-            <span class="text-lg text-slate-500">/</span>
-            <p class="text-sm text-gray-500">事業内容</p>
-          </NuxtLink>
-          <NuxtLink
-            @click="isMenuOpen = false"
-            class="flex items-center gap-1 text-left border-b border-slate-300 p-3 font-orbitron bg-white/90 hover:bg-gray-100 transition-colors duration-200"
-            style="background-color: rgba(255, 255, 255, 0.95) !important"
-            to="/company"
-          >
-            <h2 class="font-orbitron text-slate-700">COMPANY</h2>
-            <span class="text-lg text-slate-500">/</span>
-            <p class="text-sm text-gray-500">会社概要</p>
-          </NuxtLink>
-          <NuxtLink
-            @click="isMenuOpen = false"
-            class="flex items-center gap-1 text-left border-b border-slate-300 p-3 font-orbitron bg-white/90 hover:bg-gray-100 transition-colors duration-200"
-            style="background-color: rgba(255, 255, 255, 0.95) !important"
             to="/contact"
+            class="mt-3.5 rounded-[3px] bg-ink py-3.5 text-center font-mono text-[13px] tracking-[0.12em] text-white"
+            @click="isMenuOpen = false"
           >
-            <h2 class="font-orbitron text-slate-700">CONTACT</h2>
-            <span class="text-lg text-slate-500">/</span>
-            <p class="text-sm text-gray-500">お問い合わせ</p>
+            CONTACT
           </NuxtLink>
         </div>
       </div>
@@ -122,4 +101,21 @@
 
 <script setup lang="ts">
 const isMenuOpen = ref<boolean>(false);
+
+const navItems = [
+  { label: "ABOUT US", to: "/about" },
+  { label: "SERVICE", to: "/service" },
+  { label: "COMPANY", to: "/company" },
+  { label: "NEWS", to: "/news" },
+  { label: "RECRUIT", to: "/recruit" },
+];
+
+// ルート遷移でモバイルメニューを閉じる
+const route = useRoute();
+watch(
+  () => route.fullPath,
+  () => {
+    isMenuOpen.value = false;
+  }
+);
 </script>
