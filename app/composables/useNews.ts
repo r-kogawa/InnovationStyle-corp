@@ -33,7 +33,7 @@ const articles: NewsArticle[] = [
     body: [
       {
         type: "p",
-        text: "Innovation Style株式会社（本社：東京都港区、代表取締役：冨野 公平）は、チャットでの会話だけでランディングページ（LP）の生成・編集・公開までを行えるAI SaaS「AutoLP（オートエルピー）」の無料βテストを本日より開始いたしました。",
+        text: "Innovation Style株式会社（本社：東京都港区、代表取締役：古川 怜央）は、チャットでの会話だけでランディングページ（LP）の生成・編集・公開までを行えるAI SaaS「AutoLP（オートエルピー）」の無料βテストを本日より開始いたしました。",
       },
       { type: "h2", text: "「AutoLP」とは" },
       {
